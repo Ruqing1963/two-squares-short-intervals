@@ -1,0 +1,8 @@
+unmollified (Part II, theta = 1/2, kappa = 2): joint 7.561, side 5.065
+   two-sided mollifier, kappa_0 = 1, theta_eff = 1/2 - 4 xi: best joint: 1/lam+2/b = 8.574, 1/lam+1/b = 5.757 at xi = 0.0350 (theta_eff = 0.360), a = 0.0350, b = 0.355, L = 1.0000, R = 2.9403
+   two-sided mollifier, kappa_0 = 1, theta_eff = 1/2 - 4 xi: best side : 1/lam+2/b = 8.882, 1/lam+1/b = 5.603 at xi = 0.0450 (theta_eff = 0.320), a = 0.0450, b = 0.305, L = 1.0000, R = 2.3244
+kappa = 3/2: alpha = 3.9115, beta = 3.1158, F(40) = 1.00000, f(40) = 1.00000  (accepted)
+   one-sided mollifier, kappa_0 = 3/2, theta_eff = 1/2 - 2 xi: best joint: 1/lam+2/b = 8.042, 1/lam+1/b = 5.526 at xi = 0.0425 (theta_eff = 0.415), a = 0.0425, b = 0.398, L = 1.0000, R = 3.0103
+   one-sided mollifier, kappa_0 = 3/2, theta_eff = 1/2 - 2 xi: best side : 1/lam+2/b = 8.319, 1/lam+1/b = 5.334 at xi = 0.0500 (theta_eff = 0.400), a = 0.0500, b = 0.335, L = 0.9999, R = 2.3492
+for comparison, the hypothetical case without level cost (theta_eff = 1/2):
+   two-sided, kappa_0 = 1 below N^xi, 2 above, level 1/2 kept: best joint 5.243 (side 3.202) at xi = 0.44, a = 0.0950, b = 0.490

@@ -35,7 +35,7 @@
 \maketitle
 
 \begin{abstract}
-These notes record three explorations around the level of distribution $1/2$ of $r(n)r(N-n)$ (Part~I, Theorem~3.2; Part~II, Section~7). (1)~The remainder $R_d=\sum_{d_1d_2=d}R(d_1,d_2;N)$ that the two-dimensional sieve actually uses is, by the Atkin--Lehner identity $\sum_{u\mid d}G_{tu,d/u}=\prod_{p\mid d}(1+W_p)G_{t,d}$, the coefficient of the projection of $G_{t,d}$ onto the joint $(+1)$-eigenspace of the involutions $W_p$, $p\mid d$: every Hecke component with $\eta_p(f)=-1$ for some $p\mid(d,M_1)$ cancels exactly, in particular every oldform of odd level. Numerically the cancellation is of square-root strength and no more ($|R_d|$ is $0.67$--$0.69$ of $\sum|R(d_1,d_2)|$ for $\omega(d)=2$ and $0.46$--$0.48$ for $\omega(d)=3$, against $0.707$ and $0.5$ for random signs); it is a $d^{o(1)}$ gain and cannot move the level. (2)~The remainder sum $\sum\lambda_d\lambda'_e R(d,e;N)$ is written exactly as a trilinear form in classical Kloosterman sums $S(16N,m|h|^2;m'k)$ with the modulus in the progression $c\equiv0\pmod{m'}$: the character $\chi_{-4}$ disappears, no Sali\'e sums occur, the first argument is fixed, and the uniform bound of Part~I is equivalent to square-root cancellation in the sum over $k$. Square-root cancellation in the sum over $m'$ would give the level $2/3$, in the sum over $m$ as well the level $1$; the Weil bound alone gives $1/4$. No unconditional level $>1/2$ is obtained here, and the obstacles are listed. (3)~The factor $2^{\Omega(n(N-n))}$ in the weights enters the final count only through a constant; what the weights $r(n)r(N-n)$ really cost is the sieve dimension, $2$ instead of $1$. A dimension-one sieve with the same Richert weights would give $(5,3)$ at the level $1/2$ and $(3,2)$ (Chen's shape $P_1+P_2$) at the level $4/5$, against $(7,5)$ and $(5,3)$; the relation $r(pn')=2r(n')$ does not lower the dimension, and the switching trick leads back to problem~(2).
+These notes record three explorations around the level of distribution $1/2$ of $r(n)r(N-n)$ (Part~I, Theorem~3.2; Part~II, Section~7). (1)~The remainder $R_d=\sum_{d_1d_2=d}R(d_1,d_2;N)$ that the two-dimensional sieve actually uses is, by the Atkin--Lehner identity $\sum_{u\mid d}G_{tu,d/u}=\prod_{p\mid d}(1+W_p)G_{t,d}$, the coefficient of the projection of $G_{t,d}$ onto the joint $(+1)$-eigenspace of the involutions $W_p$, $p\mid d$: every Hecke component with $\eta_p(f)=-1$ for some $p\mid(d,M_1)$ cancels exactly, in particular every oldform of odd level. Numerically the cancellation is of square-root strength and no more ($|R_d|$ is $0.67$--$0.69$ of $\sum|R(d_1,d_2)|$ for $\omega(d)=2$ and $0.46$--$0.48$ for $\omega(d)=3$, against $0.707$ and $0.5$ for random signs); it is a $d^{o(1)}$ gain and cannot move the level. (2)~The remainder sum $\sum\lambda_d\lambda'_e R(d,e;N)$ is written exactly as a trilinear form in classical Kloosterman sums $S(16N,m|h|^2;m'k)$ with the modulus in the progression $c\equiv0\pmod{m'}$: the character $\chi_{-4}$ disappears, no Sali\'e sums occur, the first argument is fixed, and the uniform bound of Part~I is equivalent to square-root cancellation in the sum over $k$. Square-root cancellation in the sum over $m'$ would give the level $2/3$, in the sum over $m$ as well the level $1$; the Weil bound alone gives $1/4$. No unconditional level $>1/2$ is obtained here, and the obstacles are listed. (3)~The factor $2^{\Omega(n(N-n))}$ in the weights enters the final count only through a constant; what the weights $r(n)r(N-n)$ really cost is the sieve dimension, $2$ instead of $1$. A dimension-one sieve with the same Richert weights would give $(5,3)$ at the level $1/2$ and $(3,2)$ (Chen's shape $P_1+P_2$) at the level $4/5$, against $(7,5)$ and $(5,3)$; the relation $r(pn')=2r(n')$ does not lower the dimension, and the switching trick leads back to problem~(2). (4)~Cauchy--Schwarz over the smooth variables of the trilinear form followed by Poisson summation in $h\in\Z^2$ does not remove the fixed first argument: the $h$-box has side $\le\sqrt{mm'}$ while the modulus of the Poisson step is $\ge\sqrt N$, so the dual sum is longer by $N^{1/2-\theta/4}$; the diagonal of the first arrangement gives at most the level $2/5$. (5)~Selberg-type mollifiers $r(n)(\sum_{u\mid n,u\le N^\xi}\gamma_u)^2$ keep the theta structure at the level $1/2-4\xi$, but a mollifier truncated below the sifting limit is identically $1$ on the sifted integers and changes nothing; the density at a prime is changed only if the mollifier contains that prime, so lowering the dimension on the Richert range costs $4b$ in level, and every partial version is worse than $(7,5)$.
 \end{abstract}
 
 \section*{Setting}
@@ -281,6 +281,120 @@ Extracting a split prime $p\mid n$ from $S(\cA_p,z)$, $n=pn'$ with $p\nmid n'$, 
 
 \subsection{What would lower it}
 A level of distribution for mixed sequences $b(n)r(N-n)$ or $b(n)b(N-n)$ (dimension $3/2$ and $1$) would give the $\kappa=1$ column, or an intermediate one, with the same sieve; but $\sum_{d\mid n}b(n)e(nz)$ is not a modular form, and the only tools for $b$ are the sieve itself (the Brun--Hooley type results for sums of two squares in short intervals and progressions) or, for $1_{\mathrm{prime}}(n)r(N-n)$, the dispersion method of Linnik and Hooley. We record the comparison as the quantitative content of ``breaking the $2^\Omega$ penalty'': it is the passage from $(7,5)$ to $(5,3)$ at the level $1/2$, and from $(5,3)$ to $(3,2)$ at the level $1$, and it requires a new source of remainder control, not a rearrangement of the weights.
+
+\section{Cauchy--Schwarz and Poisson against the fixed first argument}
+
+The obstacle (a) of Section~2.4 is that the first argument $16N$ of the Kloosterman sums in \eqref{eq:trilinear} is not averaged. Here we examine whether it can be dualised away: fix $m\asymp\Delta$, apply Cauchy--Schwarz over the smooth variables, expand the square over $m'_1,m'_2\asymp E$, and apply Poisson summation to $h\in\Z^2$. The outcome is negative, for a reason that is worth stating precisely: in \eqref{eq:trilinear} the box of $h$ has side $H\le\sqrt{mm'}$, while the modulus of the Poisson step is at least $\sqrt N$; the dual of a short sum is a long sum.
+
+\subsection{The sizes}
+Fix $m\asymp\Delta$ and dyadic $m'\asymp E$, $k\asymp K\le\sqrt{N/E}$, and put $c=m'k$. In \eqref{eq:main} the weight is $\asymp W_0:=N/(mE^2K^2)$ and $\hat w$ localises $h$ to $|h|\le H:=EK\sqrt{m/N}$, so that
+\begin{equation}\label{eq:sizes}
+H^2=\frac{E^2K^2m}{N}\le mE=mm',\qquad H^2W_0\asymp1,\qquad \#\{(k,h)\}\asymp KH^2 .
+\end{equation}
+The Kloosterman regime is $K\ge\sqrt{N/m}/E$ (Remark~2.3(i)), and the top range $K\asymp\sqrt{N/E}$, where $H^2\asymp mm'$, dominates.
+
+\subsection{Two Cauchy--Schwarz arrangements}
+Let $\mathfrak B_m=\sum_{m'}\Lambda'_{m'}\sum_k\sum_hw\,S(16N,m|h|^2;m'k)$ be the $m$-th piece of \eqref{eq:trilinear}; the target is $|\mathfrak B_m|\le N^{1-\delta}/\Delta$, and the theta-function bound gives $|\mathfrak B_m|\ll EN^{1/2+\e}$.
+
+\emph{(A1) Smooth variables outside, $m'$ inside.} By Cauchy--Schwarz over $(k,h)$,
+\begin{multline*}
+|\mathfrak B_m|^2\le\Bigl(\sum_{k,h}W_0^2\Bigr)\sum_{k,h}\Bigl|\sum_{m'}\Lambda'_{m'}S(16N,m|h|^2;m'k)\Bigr|^2\\
+\asymp\frac{N}{mE^2K}\Bigl(\sum_{m'}\sum_{k,h}|S(16N,m|h|^2;m'k)|^2+\text{off-diagonal}\Bigr).
+\end{multline*}
+The diagonal is the mean square of Kloosterman sums over $h$, which is $\asymp H^2c$ by Weil (and is sharp: the mean of $|S(a,n;c)|^2$ over $n$ is $\varphi(c)$), so it contributes $E\cdot K\cdot H^2\cdot EK=E^2K^2H^2$ and
+\[
+|\mathfrak B_m|^2\ll\frac{N}{mE^2K}\,E^2K^2H^2=E^2K^3,\qquad |\mathfrak B_m|\ll EK^{3/2}=E^{1/4}N^{3/4}\quad(K=\sqrt{N/E}),
+\]
+\emph{even if the off-diagonal terms vanished}. This beats $EN^{1/2}$ only for $E>N^{1/3}$, and the sieve condition $\Delta E^{1/4}N^{3/4}\le N^{1-\delta}$ with the balanced split $\Delta=E$ gives $E\le N^{1/5}$, i.e.\ the level $2/5<1/2$. The diagonal already loses, because Cauchy--Schwarz replaces the theta-function saving $K^{1/2}$ on the sum over $k$ by the Weil bound: the smooth variables are too short to carry the dispersion.
+
+\emph{(A2) $h$ outside, $(m',k)$ inside.} Now $|\mathfrak B_m|^2\le(\sum_hW_0^2)\sum_h|\sum_{m',k}S|^2$, the diagonal is $H^2\cdot EK\cdot EK$, and with \eqref{eq:sizes}
+\[
+|\mathfrak B_m|^2\ll H^2W_0^2\cdot H^2E^2K^2=E^2K^2,\qquad|\mathfrak B_m|\ll EK=\sqrt{EN},
+\]
+which is the level-$2/3$ target of Section~2.3; but this diagonal \emph{is} the statement that the sum over the moduli $c=m'k$ has square-root cancellation, so (A2) is a reformulation of the problem, not a method, and everything is in the off-diagonal terms
+\begin{equation}\label{eq:corr}
+C(c_1,c_2)=\sum_hW\Bigl(\frac hH\Bigr)S(16N,m|h|^2;c_1)\,S(16N,m|h|^2;c_2),\qquad c_i=m'_ik_i,\ c_1\ne c_2 .
+\end{equation}
+
+\subsection{Poisson in $h$ for the off-diagonal terms}
+Opening the two Kloosterman sums in \eqref{eq:corr}, with $g=(c_1,c_2)$ and $q=[c_1,c_2]=c_1c_2/g$,
+\[
+C(c_1,c_2)=\sum_{t_1\bmod c_1}^*\sum_{t_2\bmod c_2}^*e\Bigl(\frac{16Nt_1}{c_1}+\frac{16Nt_2}{c_2}\Bigr)\,\mathcal G(\lambda),\qquad
+\mathcal G(\lambda)=\sum_{h\in\Z^2}W\Bigl(\frac hH\Bigr)e\Bigl(\frac{\lambda|h|^2}{q}\Bigr),\quad \lambda=m\Bigl(\bar t_1\frac{c_2}g+\bar t_2\frac{c_1}g\Bigr).
+\]
+The inner sum is a two-dimensional theta sum of length $H$ and modulus $q$. Poisson summation (write $h=u+qv$, $u\bmod q$) gives, for $(\lambda,q)=1$,
+\[
+\mathcal G(\lambda)=\frac{H^2}{q^2}\sum_{\ell\in\Z^2}\hat W\Bigl(\frac{H\ell}q\Bigr)\sum_{u\bmod q}e\Bigl(\frac{\lambda|u|^2+\ell\cdot u}{q}\Bigr)=\frac{H^2}{q^2}\sum_{\ell\in\Z^2}\hat W\Bigl(\frac{H\ell}q\Bigr)G(\lambda;q)^2\,e\Bigl(-\frac{\overline{4\lambda}\,|\ell|^2}{q}\Bigr),
+\]
+with $|G(\lambda;q)|^2=q$. The dual variable runs over $|\ell|\ll q/H$, so the dual sum has $(q/H)^2$ terms of size $H^2/q$, and the fixed $16N$ survives as the linear phase of the two-variable complete sum
+\[
+\sum_{t_1,t_2}e\Bigl(\frac{16Nt_1}{c_1}+\frac{16Nt_2}{c_2}-\frac{\overline{4\lambda(t_1,t_2)}\,|\ell|^2}{q}\Bigr)G(\lambda(t_1,t_2);q)^2 ,
+\]
+in which $\lambda$ is a linear form in the inverses $\bar t_1,\bar t_2$: this is the ``congruence equation in $(t_1,t_2)$'' that the dualisation produces. Now the bookkeeping. The term $\ell=0$ gives $(H^2/q)\chi(q)$ times a sum of $e(16Nt_1/c_1+16Nt_2/c_2)$ over $(t_1,t_2)$ with $(\lambda,q)=1$, a combination of Ramanujan sums, hence $O(H^2g\,N^\e/q)$: the off-diagonal has no main term, in agreement with the random-sign behaviour of Part~II, Section~8.2. For $\ell\ne0$, even with square-root cancellation of Deligne type in the $(t_1,t_2)$-sum (which has $c_1c_2=qg$ terms), the total is
+\[
+\frac{H^2}{q^2}\cdot\Bigl(\frac qH\Bigr)^2\cdot q\cdot(qg)^{1/2}=q^{3/2}g^{1/2},
+\]
+against the trivial bound $H^2(c_1c_2)^{1/2}=H^2(qg)^{1/2}$ obtained by applying Weil to both Kloosterman sums before summing over $h$. The dualisation therefore loses the factor
+\[
+\frac q{H^2}\ \ge\ \frac{c_1c_2/g}{mm'}\ \ge\ \frac{\sqrt{EN}}{m}\ \ge\ N^{1/2-\theta/4}\qquad(\text{balanced split }m\asymp m'\asymp N^{\theta/2}),
+\]
+and it would gain only if $H>\sqrt q$, i.e.\ $mm'\gg\sqrt{EN}$, which never happens for $\theta<2$. By \eqref{eq:sizes} the side of the $h$-box is at most $\sqrt{mm'}=N^{\theta/2}$, the square root of the sieve level, while every modulus in \eqref{eq:trilinear} is at least $\sqrt{N/m}$; Poisson in $h$ is counterproductive in the whole range of the sieve.
+
+\subsection{Conclusion, and what the data say}
+Neither Cauchy--Schwarz arrangement removes the fixed first argument: (A1) is weaker than the theta-function bound because it discards the saving on the $k$-sum, (A2) is a restatement, and the Poisson dual of the $h$-sum is longer than the sum itself by $N^{1/2-\theta/4}$. The only variable in \eqref{eq:trilinear} that is long compared with the modulus is $k$, and that is the modulus; its sum is exactly what the theta function already evaluates. A dispersion over the lattice points $(x,y)$ themselves (the arrangement of Linnik's problem, the sum over $m'$ inside the square) leads to the correlations $\sum_{m\alpha+[e_1,e_2]\beta=N}r(\alpha)r(e_1'\beta)r(e_2'\beta)$, whose weight $r(e_1'\beta)r(e_2'\beta)$ is not a theta coefficient and whose moduli $[e_1,e_2]\asymp E^2$ cost, with the theta bound, the level $1/3$; this is where the Deshouillers--Iwaniec machinery would have to enter, and it is the problem of Section~2.4, not a way around it.
+
+The script \texttt{kloosterman\_correlation.py} (\texttt{results/kloosterman\_correlation.txt}) computes \eqref{eq:corr} for $N=2000002$, $m=5$, twelve primes $m'\in[41,173]$ and $k=43,83,127$, i.e.\ moduli $c\le2.2\cdot10^4$ in the Kloosterman regime: there $H$ is between $2.8$ and $35$, $H^2/c^2=m/N=2.5\cdot10^{-6}$ exactly, the diagonal $C(c,c)$ is $1.0$--$1.5$ times the Weil size $H^2c$, the off-diagonal correlations $C(c_1,c_2)/\sqrt{C(c_1,c_1)C(c_2,c_2)}$ have root mean square $0.38$, $0.19$, $0.14$ (random signs on the $\asymp H^2$ lattice points would give $0.19$, $0.10$, $0.06$), and the quadratic form $\sum_{m'_1,m'_2}\pm\pm C$ is $0.65$--$1.02$ times its trace for the sieve signs $\mu(m')$ and $0.95$--$0.99$ for random signs, against $12$ for full coherence: square-root cancellation over $m'$, as in Part~II, Section~8.2, and nothing that a dualisation of $h$ could exploit.
+
+\section{Mollified theta weights and the dimension}
+
+Section~3.4 asked for remainder control for a sequence of dimension lower than $2$. The weights
+\begin{equation}\label{eq:moll}
+\tilde w(n)=r(n)\Bigl(\sum_{\substack{u\mid n\\ u\le N^\xi}}\gamma_u\Bigr)^2\,r(N-n)\Bigl(\sum_{\substack{v\mid N-n\\ v\le N^\xi}}\gamma_v\Bigr)^2\ \ge0
+\end{equation}
+stay inside the theta framework: expanding the squares, $\sum_{d_1\mid n,\,d_2\mid N-n}\tilde w(n)$ is a combination of the sums $S([d_1,u_1,u_2],[d_2,v_1,v_2])$ with moduli $\le d_1d_2N^{4\xi}$, so that Part~I, Theorem~3.2 controls the remainders of $\tilde w$ at the level $\theta_{\mathrm{eff}}=1/2-4\xi$ (two-sided mollifier) or $1/2-2\xi$ (mollifier on one side only). We determine exactly what such weights can and cannot do.
+
+\subsection{A mollifier below the sifting limit does nothing}
+\begin{theorem}\label{thm:nothing}
+Let $(\gamma_u)$ be any weights supported on $u\le N^\xi$ with $\gamma_1=1$, let $\xi<a$ and $z=N^a$. Then $\tilde w(n)=w(n)$ for every $n$ with $(n(N-n),P(z))=1$. Consequently $S(\tilde{\cA},z)=S(\cA,z)$, $S(\tilde{\cA}_p,z)=S(\cA_p,z)$ for every $p\ge z$, and the weighted sum $W$ of Section~3.1 is the same for $\tilde w$ and for $w$: the mollified sieve is the unmollified sieve, run at the level $1/2-4\xi$ instead of $1/2$.
+\end{theorem}
+\begin{proof}
+If $(n,P(z))=1$, the only divisor $u\le N^\xi<z$ of $n$ is $u=1$, so the inner sums in \eqref{eq:moll} are $\gamma_1=1$; the same for $N-n$. The sifted sums and the sums over $\cA_p$, $p\ge z$, involve only such $n$.
+\end{proof}
+So for $\xi<a$ the answer to the question is unconditional: no weight of the form \eqref{eq:moll}, non-negative or not, multiplicative or not, changes anything in the sieve except the level, which it lowers. The pairs $(k,k')$ are read off from the thresholds at the level $1/2-4\xi$, which are worse than at $1/2$ (Part~II, Figure~4(b)).
+
+\subsection{The density at a prime inside the mollifier}
+\begin{proposition}\label{prop:density}
+Let $\gamma$ be multiplicative, supported on square-free integers, and ignore the truncation. The sequence $r(n)(\sum_{u\mid n}\gamma_u)^2$ has at a prime $p$ the density
+\[
+\tilde h(p)=h(p)\,\frac{(1+\gamma_p)^2}{1+(2\gamma_p+\gamma_p^2)h(p)},
+\]
+where $h$ is the density of $r(n)$ (so $h(p)\sim2/p$ for split $p$). In particular $\tilde h(p)=h(p)$ if $\gamma_p=0$, and $(1+\gamma_p)^2=\frac12$ gives $\tilde h(p)=h(p)/(2-h(p))\sim1/p$.
+\end{proposition}
+\begin{proof}
+The main term of $\sum_{d\mid n}r(n)(\sum_{u\mid n}\gamma_u)^2$ is $X\sum_{u_1,u_2}\gamma_{u_1}\gamma_{u_2}h([d,u_1,u_2])$. For $d=1$ this is $X\prod_\ell(1+(2\gamma_\ell+\gamma_\ell^2)h(\ell))$, and for $d=p$ the Euler factor at $p$ becomes $h(p)+(2\gamma_p+\gamma_p^2)h(p)=h(p)(1+\gamma_p)^2$, since $h([p,u_1,u_2])=h(p)h([u_1,u_2])$ if $p\nmid u_1u_2$ and $=h([u_1,u_2])$ otherwise. Divide.
+\end{proof}
+
+Hence a mollifier changes the density exactly at the primes it contains, and only there: to lower the dimension at the primes of the Richert range $[N^a,N^b]$ it must contain them, i.e.\ have length at least $N^b$. The choice $(1+\gamma_p)^2=\frac12$ for all $p$ gives $(\sum_{u\mid n}\gamma_u)^2=2^{-\omega(n)}$ and $\tilde w(n)=16\,b(n)b(N-n)$ on the square-free integers with split prime factors: the fully mollified weight is the indicator weight of Section~3.2, as it must be, and the truncation at $N^\xi$ is precisely the trade between dimension and level.
+
+\subsection{The trade, quantitatively}
+With $\xi\ge a$ the sieve becomes a hybrid: the sifting range $p<z\le N^\xi$ has dimension $\kappa_0=1$ (two-sided) or $3/2$ (one-sided), the Richert range has density $\kappa(t)=\kappa_0$ for $t<\xi$ and $2$ for $t>\xi$, and the level is $\theta_{\mathrm{eff}}=1/2-4\xi$ or $1/2-2\xi$. The weighted sieve of Section~3.1 then reads $L=f_{\kappa_0}(\theta_{\mathrm{eff}}/a)$, $R=\int_a^b(1-t/b)\kappa(t)F_{\kappa_0}((\theta_{\mathrm{eff}}-t)/a)\,\dd t/t$, with the cut $b<\theta_{\mathrm{eff}}$. Since the mollifier must reach the Richert range to act on it, $b<\theta_{\mathrm{eff}}\le1/2-4a$ (two-sided) or $1/2-2a$ (one-sided), which already forces $1/\lambda+2/b>2/b>4$ and leaves little room. The script \texttt{mollified\_benchmark.py} scans $(\xi,a,b)$ for both variants (the sieve constants for $\kappa=3/2$, $\alpha_{3/2}=3.9115$, $\beta_{3/2}=3.1158$, are computed by the solver of Part~II with residual $5\cdot10^{-14}$; we have not cross-checked them against the published table) and finds (\texttt{results/mollified\_benchmark.txt}):
+\begin{center}\small
+\begin{tabular}{l|cc|c}
+\toprule
+ & $\min(1/\lambda+2/b)$ & $\min(1/\lambda+1/b)$ & $(k,k')$\\
+\midrule
+unmollified, $\kappa=2$, $\theta=1/2$ (Part~II) & $7.561$ & $5.065$ & $(7,5)$\\
+two-sided, $\kappa_0=1$, $\theta_{\mathrm{eff}}=1/2-4\xi$ & $8.574$ & $5.603$ & $(8,5)$\\
+one-sided, $\kappa_0=3/2$, $\theta_{\mathrm{eff}}=1/2-2\xi$ & $8.042$ & $5.334$ & $(8,5)$\\
+hypothetical: two-sided, no level cost & $5.243$ & $3.202$ & $(5,3)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+(The minima are attained at $\xi=a=0.035$, $b=0.355$ and $\xi=a=0.045$ in the two-sided case, at $\xi=a=0.0425$, $b=0.398$ and $\xi=a=0.05$ in the one-sided case, and at $\xi=0.44$, $b=0.49$ in the hypothetical one.) In both real variants the optimum sits at $\xi=a$, the smallest mollifier that touches the sifting range at all, and is worse than $(7,5)$: the level lost outweighs the dimension gained. The last line confirms Section~3: if the mollifier were free, pushing $\xi$ to $b$ would reproduce the $\kappa=1$ thresholds $5.18/3.14$.
+
+\begin{remark}
+The conclusion is the precise form of the answer requested: (i) a mollifier truncated below $N^a$ does not change the dimension at any prime $\ge N^a$, by Theorem~\ref{thm:nothing}, and does not change the sieve at all; (ii) to change the dimension at $p\in[N^a,N^b]$ the mollifier must contain $p$ (Proposition~\ref{prop:density}), hence have length $\ge N^b$, hence cost $4b$ (or $2b$) in the level, which is more than the level itself for $b\ge1/8$ (or $1/4$); (iii) the partial versions, mollifying only $[N^a,N^\xi]$, lose more in level than they gain in dimension at every $\xi\ge a$. Selberg's upper-bound weights $(\sum_{u\mid n,u\le U}\lambda_u)^2$ are of the same form and are subject to the same accounting. What is needed is a remainder term for $b(n)r(N-n)$ or $b(n)b(N-n)$ that does not pass through the moduli $[u_1,u_2]$, i.e.\ a non-modular input.
+\end{remark}
 
 \begin{thebibliography}{9}
 \bibitem{AL} A.~O.~L.~Atkin, J.~Lehner, \emph{Hecke operators on $\Gamma_0(m)$}, Math. Ann. \textbf{185} (1970), 134--160.

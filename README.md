@@ -20,11 +20,22 @@ Section 7), written after Parts I and II were finalised. Nothing here is part of
      r(n) r(N-n) cost the sieve dimension (2 instead of 1). Benchmark with the same Richert weights: dimension 1 would
      give (5,3) at theta = 1/2 and (3,2), i.e. N = P_1 + P_2, from theta = 4/5, against (7,5) and (5,3); r(pn') = 2r(n')
      does not lower the dimension and the switching trick leads back to problem 2.
+  4. **Cauchy-Schwarz and Poisson against the fixed first argument 16N.** Exponent bookkeeping for both Cauchy-Schwarz
+     arrangements of the trilinear form and for the Poisson dual in h: the h-box has side <= sqrt(mm') while the modulus
+     of the Poisson step is >= sqrt(N), so the dual is longer by N^{1/2 - theta/4}; the first arrangement's diagonal
+     alone gives at most the level 2/5. Negative.
+  5. **Mollified theta weights.** r(n) (sum_{u|n, u<=N^xi} g_u)^2 keeps the theta structure at the level 1/2 - 4 xi;
+     Theorem 5.1: for xi < a the mollifier is identically 1 on the sifted integers (same sieve, lower level);
+     Proposition 5.2: the density at p changes only if the mollifier contains p, so acting on the Richert range costs
+     4b (two-sided) or 2b (one-sided) in level; the hybrid sieve is worse than (7,5) for every xi >= a (8.57/5.60 and
+     8.04/5.33 against 7.56/5.07).
 * `code/` (the scripts import the modules of Part II from `../two-squares-mean-square/code`):
   `symmetric_remainder.py` (all R(d1,d2;N) exactly, 24 values of N near 2e6, ratios and the empirical eigenspace share),
   `symmetric_norm_share.py` (Rankin-Selberg shares of the joint Atkin-Lehner eigenspaces of G_{1,d}, also restricted to the
   residue classes the sieve sees), `kloosterman_check.py` (Lemma 2.1 for prime and composite square-free moduli),
-  `dimension_benchmark.py` (Richert thresholds for kappa = 1 and kappa = 2).
-* `results/`: the outputs of the four scripts.
+  `dimension_benchmark.py` (Richert thresholds for kappa = 1 and kappa = 2), `kloosterman_correlation.py` (sizes and
+  correlations of the Kloosterman sums of Section 4), `mollified_benchmark.py` (hybrid sieve thresholds of Section 5,
+  including the DHR constants for kappa = 3/2).
+* `results/`: the outputs of the six scripts.
 
 Floating point throughout; evidence, not proof.
