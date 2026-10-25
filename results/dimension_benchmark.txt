@@ -1,0 +1,9 @@
+linear sieve: alpha_1 = beta_1 = 2.0000;  dimension 2: alpha_2 = 5.3577, beta_2 = 4.2665
+ theta | kappa=2 (weights r r): joint, side -> (k,k'), at (a,b)                   | kappa=1 (indicator weights): joint, side -> (k,k'), at (a,b)            
+ 0.500 | joint  7.561 (a=0.052, b=0.433), side  5.065 (a=0.059, b=0.353) -> (7,5) | joint  5.181 (a=0.097, b=0.495), side  3.144 (a=0.101, b=0.475) -> (5,3)
+ 0.667 | joint  6.373 (a=0.073, b=0.543), side  4.313 (a=0.083, b=0.413) -> (6,4) | joint  4.171 (a=0.130, b=0.660), side  2.602 (a=0.142, b=0.593) -> (4,2)
+ 0.800 | joint  5.741 (a=0.091, b=0.615), side  3.889 (a=0.102, b=0.450) -> (5,3) | joint  3.663 (a=0.158, b=0.780), side  2.313 (a=0.178, b=0.670) -> (3,2)
+ 0.950 | joint  5.212 (a=0.111, b=0.688), side  3.519 (a=0.125, b=0.483) -> (5,3) | joint  3.255 (a=0.191, b=0.910), side  2.069 (a=0.226, b=0.738) -> (3,2)
+ 1.000 | joint  5.065 (a=0.118, b=0.708), side  3.414 (a=0.133, b=0.493) -> (5,3) | joint  3.144 (a=0.203, b=0.950), side  2.000 (a=0.465, b=0.535) -> (3,2)
+
+(k, k'): Omega(n(N-n)) <= k and max(Omega(n), Omega(N-n)) <= k', from min(1/lam + 2/b) <= k + 1 and min(1/lam + 1/b) <= k' + 1 with L - lam R > 0; the two minima are attained at different (a, b), so a simultaneous pair may need one more unit on one side (Part II, Table 3).  The kappa = 1 column assumes a level of distribution theta for the indicator weights b(n) b(N-n), which no theta series provides; it is the benchmark, not a theorem.

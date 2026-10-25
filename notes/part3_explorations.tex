@@ -1,0 +1,294 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.6cm]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\emergencystretch=2.5em
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{definition}
+\newtheorem{question}[theorem]{Question}
+
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\HH}{\mathbb H}
+\newcommand{\e}{\varepsilon}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\dd}{\,\mathrm d}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\vol}{vol}
+
+\title{Notes towards Part III:\\ the symmetric remainder, the dispersion form of the remainder sum,\\ and the dimension of the weighted sieve}
+\author{Ruqing Chen}
+\date{October 25, 2026 --- working notes, not for circulation}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+These notes record three explorations around the level of distribution $1/2$ of $r(n)r(N-n)$ (Part~I, Theorem~3.2; Part~II, Section~7). (1)~The remainder $R_d=\sum_{d_1d_2=d}R(d_1,d_2;N)$ that the two-dimensional sieve actually uses is, by the Atkin--Lehner identity $\sum_{u\mid d}G_{tu,d/u}=\prod_{p\mid d}(1+W_p)G_{t,d}$, the coefficient of the projection of $G_{t,d}$ onto the joint $(+1)$-eigenspace of the involutions $W_p$, $p\mid d$: every Hecke component with $\eta_p(f)=-1$ for some $p\mid(d,M_1)$ cancels exactly, in particular every oldform of odd level. Numerically the cancellation is of square-root strength and no more ($|R_d|$ is $0.67$--$0.69$ of $\sum|R(d_1,d_2)|$ for $\omega(d)=2$ and $0.46$--$0.48$ for $\omega(d)=3$, against $0.707$ and $0.5$ for random signs); it is a $d^{o(1)}$ gain and cannot move the level. (2)~The remainder sum $\sum\lambda_d\lambda'_e R(d,e;N)$ is written exactly as a trilinear form in classical Kloosterman sums $S(16N,m|h|^2;m'k)$ with the modulus in the progression $c\equiv0\pmod{m'}$: the character $\chi_{-4}$ disappears, no Sali\'e sums occur, the first argument is fixed, and the uniform bound of Part~I is equivalent to square-root cancellation in the sum over $k$. Square-root cancellation in the sum over $m'$ would give the level $2/3$, in the sum over $m$ as well the level $1$; the Weil bound alone gives $1/4$. No unconditional level $>1/2$ is obtained here, and the obstacles are listed. (3)~The factor $2^{\Omega(n(N-n))}$ in the weights enters the final count only through a constant; what the weights $r(n)r(N-n)$ really cost is the sieve dimension, $2$ instead of $1$. A dimension-one sieve with the same Richert weights would give $(5,3)$ at the level $1/2$ and $(3,2)$ (Chen's shape $P_1+P_2$) at the level $4/5$, against $(7,5)$ and $(5,3)$; the relation $r(pn')=2r(n')$ does not lower the dimension, and the switching trick leads back to problem~(2).
+\end{abstract}
+
+\section*{Setting}
+We keep the notation of Parts I and II: $\chi=\chi_{-4}$, $r(n)=4\sum_{k\mid n}\chi(k)$, $\Theta_{m,m'}=\theta^2(mz)\theta^2(m'z)=E_{m,m'}+G_{m,m'}\in M_2(\Gamma_0(4mm'))$ for coprime odd $m,m'$, $a_{G}(N)=T(m,m';N)-M(m,m';N)$, $W_Q$ the Atkin--Lehner matrices, $\eta_Q(f)$ the eigenvalues of the newforms, and $(f|_k\gamma)(z)=(\det\gamma)^{k/2}(cz+d)^{-k}f(\gamma z)$, so that scalar matrices act trivially. For $N\equiv2\pmod4$, $\cA=\{n\le N:(n,N)=1\}$, $w(n)=r(n)r(N-n)$, and for coprime square-free $d_1,d_2$ with $(d_1d_2,2N)=1$,
+\[
+S(d_1,d_2)=\sum_{\substack{n\in\cA\\ d_1\mid n,\ d_2\mid N-n}}w(n)=X_Nh(d_1)h(d_2)+R(d_1,d_2;N),\qquad R_d=\sum_{d_1d_2=d}R(d_1,d_2;N),
+\]
+with $h(p)=(2p-1)/(p(p+1))$ for $p\equiv1$, $h(q)=1/(q(q-1))$ for $q\equiv3\pmod4$ (Part~I, Section~3; Part~II, Section~7.2). By Part~I, (16) (Part~II, (4)),
+\begin{multline}\label{eq:Rdecomp}
+R(d_1,d_2;N)=\sum_{t\mid N^\flat}\mu(t)\sum_{\substack{t_1=tu\\ u\mid t}}c_t(t_1)\sum_{\substack{s_1\mid d_1\\ s_2\mid d_2}}c_{d_1}(d_1s_1)c_{d_2}(d_2s_2)\bigl(a_G(N)-a_G(N/2)\bigr),\\ G=G_{t_1d_1s_1,\,d_2s_2},
+\end{multline}
+where $c_p(p)=2$, $c_p(p^2)=-1$ for split $p$ and $c_q(q)=0$, $c_q(q^2)=1$ for inert $q$, multiplicatively; every parameter $t_1d_1s_1$, $d_2s_2$ is $\equiv1\pmod4$, being a product of split primes and of squares of inert primes. The scripts and outputs quoted below are in the directories \texttt{code/} and \texttt{results/} next to these notes; they import the modules of Part~II.
+
+\section{The symmetric remainder $R_d$}
+
+\subsection{Transport of a factor by an Atkin--Lehner involution}
+Lemma~6.1 of Part~II moves the whole factor $m$ of $\Theta_{m,m'}$ to the other side. The same computation moves any part of it.
+
+\begin{lemma}\label{lem:transport}
+Let $m_1,m_2,m'$ be pairwise coprime odd positive integers, $L=4m_1m_2m'$ and $W_{m_1}$ an Atkin--Lehner matrix of level $L$. Then
+\[
+\Theta_{m_1m_2,\,m'}|_2W_{m_1}=\chi(m_1)\,\Theta_{m_2,\,m_1m'},\qquad\text{hence}\qquad G_{m_1m_2,\,m'}=\chi(m_1)\,G_{m_2,\,m_1m'}|_2W_{m_1}.
+\]
+\end{lemma}
+\begin{proof}
+Write $W_{m_1}=\left(\begin{smallmatrix}m_1a&b\\Lc&m_1d\end{smallmatrix}\right)$ with $m_1ad-4m_2m'bc=1$; then $d$ is odd. First, $B_{m_1m_2}W_{m_1}=m_1B_{m_2}\gamma$ with $\gamma=\left(\begin{smallmatrix}m_1a&b\\4m_2m'c&d\end{smallmatrix}\right)\in\Gamma_0(4m_2m')\subseteq\Gamma_0(4m_2)$, as one checks by multiplying out; since $\theta^2(m_2\,\cdot)\in M_1(\Gamma_0(4m_2),\chi)$,
+\begin{align*}
+\theta^2(m_1m_2\,\cdot)|_1W_{m_1}&=(m_1m_2)^{-1/2}\,\theta^2|_1(B_{m_1m_2}W_{m_1})\\
+&=(m_1m_2)^{-1/2}\bigl(\theta^2|_1B_{m_2}\bigr)|_1\gamma=m_1^{-1/2}\chi(d)\,\theta^2(m_2z).
+\end{align*}
+Second, $W_{m_1}=\gamma'B_{m_1}$ with $\gamma'=\left(\begin{smallmatrix}a&b\\4m_2m'c&m_1d\end{smallmatrix}\right)\in\Gamma_0(4m_2m')\subseteq\Gamma_0(4m')$, so
+\[
+\theta^2(m'\cdot)|_1W_{m_1}=\chi(m_1d)\,\theta^2(m'\cdot)|_1B_{m_1}=\chi(m_1d)\,m_1^{1/2}\theta^2(m_1m'z).
+\]
+Multiplying, $\Theta_{m_1m_2,m'}|_2W_{m_1}=\chi(m_1)\theta^2(m_2z)\theta^2(m_1m'z)$. The statement for $G$ follows because $|_2W_{m_1}$ preserves the orthogonal decomposition into Eisenstein and cuspidal parts (Part~II, Section~6.1) and $W_{m_1}^2$ acts trivially.
+\end{proof}
+
+\subsection{The sum over the factorisations}
+For odd square-free $d$, $s\mid d$ and $u\mid d$ put $u_s=u\,(u,s)$, so that $u_s\,(d/u)_s=ds$ and $u_s$ is the part of $ds$ supported on the primes of $u$.
+
+\begin{proposition}\label{prop:sym}
+Let $d$ be odd and square-free, $s\mid d$, and $t_1$ odd with $(t_1,d)=1$. Then
+\[
+\sum_{u\mid d}G_{t_1u_s,\,(d/u)_s}=G_{t_1,\,ds}\Big|_2\prod_{p\mid d}\bigl(1+\chi(p^{v_p(ds)})\,W_{p^{v_p(ds)}}\bigr),
+\]
+the $W$'s being Atkin--Lehner matrices of level $4t_1ds$. If every prime power $p^{v_p(ds)}$ is $\equiv1\pmod4$ (which is the case for every term of \eqref{eq:Rdecomp}), the right-hand side is $2^{\omega(d)}P^+_{d,s}G_{t_1,ds}$, where $P^+_{d,s}=\prod_{p\mid d}\frac12(1+W_{p^{v_p(ds)}})$ is the orthogonal projection onto the joint $(+1)$-eigenspace of the commuting involutions $W_{p^{v_p(ds)}}$, $p\mid d$.
+\end{proposition}
+\begin{proof}
+By Lemma~\ref{lem:transport} with $(m_1,m_2,m')=(u_s,t_1,(d/u)_s)$, $G_{t_1u_s,(d/u)_s}=\chi(u_s)G_{t_1,ds}|_2W_{u_s}$. For coprime exact divisors $Q,Q'$ of the level, $W_QW_{Q'}$ is an Atkin--Lehner matrix $W_{QQ'}$ up to a scalar and an element of $\Gamma_0(L)$ \cite{AL}, so $W_{u_s}=\prod_{p\mid u}W_{p^{v_p(ds)}}$ on $M_2(\Gamma_0(L))$, and $\chi(u_s)=\prod_{p\mid u}\chi(p^{v_p(ds)})$. Expanding the product over $p\mid d$ gives the sum over $u\mid d$. The $W_{p^{v}}$ are commuting self-adjoint involutions, so $\frac12(1+W)$ is the orthogonal projection onto the $(+1)$-eigenspace and the product of the projections is the projection onto the intersection.
+\end{proof}
+
+\begin{corollary}\label{cor:Rd}
+With the notation of \eqref{eq:Rdecomp}, for odd square-free $d$ with $(d,2N)=1$,
+\[
+R_d=\sum_{t\mid N^\flat}\mu(t)\sum_{t_1=tu,\ u\mid t}c_t(t_1)\sum_{s\mid d}c_d(ds)\,2^{\omega(d)}\Bigl(a_{P^+_{d,s}G_{t_1,ds}}(N)-a_{P^+_{d,s}G_{t_1,ds}}(N/2)\Bigr).
+\]
+\end{corollary}
+\begin{proof}
+In \eqref{eq:Rdecomp}, $c_{d_1}(d_1s_1)c_{d_2}(d_2s_2)=c_d(ds)$ with $s=s_1s_2$ by multiplicativity, and for fixed $s$ the pair $(s_1,s_2)$ is determined by $(d_1,d_2)$: $s_1=(s,d_1)$, $s_2=(s,d_2)$. Hence summing \eqref{eq:Rdecomp} over $d_1d_2=d$ sums, for each $(t,t_1,s)$, the coefficients of $G_{t_1(d_1)_s,(d_2)_s}$ over all $d_1\mid d$, and Proposition~\ref{prop:sym} applies.
+\end{proof}
+
+\subsection{Which components cancel}
+Let now $s=1$, $t_1=1$ (the terms of smallest level, which carry most of the remainder) and $n=d$. For a newform $f$ of level $2^eM_1\mid4d$ let $S(f)=\mathrm{span}\{f(\delta\,\cdot):\delta\mid4d/(2^eM_1)\}$ and $\pr_f$ the orthogonal projection, as in Part~II, Proposition~6.19.
+
+\begin{proposition}\label{prop:cancel}
+Let $d$ be odd and square-free.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.2em]
+\item If $p\mid M_1$, $W_p$ acts on $S(f)$ as the scalar $\eta_p(f)$. If $p\mid d$, $p\nmid M_1$, $W_p$ maps $f(\delta\,\cdot)$ to $(\delta'/\delta)f(\delta'\cdot)$ with $\delta'=\delta p$ or $\delta/p$ (Part~II, Lemma~6.8), so that $S(f)$ splits into two $W_p$-eigenspaces of equal dimension.
+\item $W_d=\prod_{p\mid d}W_p$ acts on $G_{1,d}$ as $\chi(d)$ (Part~II, Remark~6.9(i)).
+\item Consequently $P^+_{d,1}\pr_fG_{1,d}=0$ whenever $\eta_p(f)=-1$ for some $p\mid M_1$. In particular, writing $\e(f)=-\eta_{2^e}(f)\eta_{M_1}(f)$ for the root number and using $\eta_4=-1$ for $e=2$ (Part~II, Proposition~6.17) and Theorem~6.7(ii) of Part~II (the component $\pr_fG_{1,d}$ is non-zero only if $L(1,f)L(1,f\otimes\chi)\ne0$, hence only if $\e(f)=+1$):
+\begin{itemize}[leftmargin=1.6em]
+\item $e=0$, $M_1>1$: $\e(f)=+1$ forces $\eta_{M_1}(f)=-1$, so some $\eta_p(f)=-1$ and the whole component cancels; \emph{every oldform of odd level cancels in $R_d$};
+\item $e=1$: $\e(f)=+1$ forces $\eta_{M_1}(f)=-\eta_2(f)$; the component survives only if $\eta_2(f)=-1$, i.e.\ $a_f(2)=+1$, and $\eta_p(f)=+1$ for every $p\mid M_1$;
+\item $e=2$: $\e(f)=\eta_{M_1}(f)$, so $\eta_{M_1}(f)=+1$ is automatic, and the component survives iff $\eta_p(f)=+1$ for every $p\mid M_1$; for the newforms of level $4d$ this is the condition $\eta_p=+1$ for all $p\mid d$.
+\end{itemize}
+What survives of a surviving component is its part in $\bigcap_{p\mid d,\,p\nmid M_1}S(f)^{+,p}$, and it enters $R_d$ with the factor $2^{\omega(d)}$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(i) is Lemma~6.8 of Part~II with $Q=p$; (ii) is Lemma~\ref{lem:transport} with $(m_1,m_2,m')=(d,1,1)$ and $\Theta_{d,1}=\Theta_{1,d}$. For (iii), $P^+_{d,1}$ contains the factor $\frac12(1+W_p)$, which annihilates $S(f)$ when $W_p=-1$ on $S(f)$. The sign conditions are the functional equation $\Lambda(s,f)=\e(f)\Lambda(2-s,f)$ with $\e(f)=-\eta_{\mathrm{level}}(f)$ in weight $2$.
+\end{proof}
+
+\begin{remark}
+(i) For $d=p$ prime nothing cancels: $W_p=\chi(p)$ on $G_{1,p}$, and indeed $R(p,1)=R(1,p)$ by the symmetry $n\leftrightarrow N-n$ of $w$. The claim that ``all $f$ with $\eta_p(f)=-1$ for some $p\mid(d,M_1)$ cancel'' is correct, but for $d=p$ the set of such $f$ in $G_{1,p}$ is empty. The cancellation is between the $2^{\omega(d)-1}$ \emph{unordered} splittings $\{d_1,d_2\}$; for $d=p_1p_2$ it is between $R(d,1)$ and $R(p_1,p_2)$, i.e.\ between $G_{1,d}$ and $G_{p_1,p_2}=G_{1,d}|W_{p_1}$, and it removes the $(-,-)$-eigenspace, which by (iii) contains all the oldforms of odd level, the oldforms of level $2p_i$ with $a_f(2)=-1$, and half (in the sense of (i)) of every other component, the newforms of level $4d$ with $\eta_{p_1}=\eta_{p_2}=-1$ included.
+
+(ii) The identity of Proposition~\ref{prop:sym} holds for the terms with $s>1$ (parameters with squares of primes) as well; there $W_{p^2}$ acts on $S(f)$ with both eigenvalues even when $p\mid M_1$, and the description (iii) does not apply verbatim. These terms are smaller by $(ds/d)^{-1/2}$ in mean square.
+
+(iii) The corresponding statement for the sum with the weight $\chi(m)$ over all factorisations $m\mid n$ is Proposition~6.19 of Part~II; here $\chi(m)=1$ for every $m$ that occurs, and the point is that the sieve itself performs this sum.
+\end{remark}
+
+\subsection{Numerical results}
+The script \texttt{symmetric\_remainder.py} computes every $R(d_1,d_2;N)$ exactly (direct summation of $w(n)$ over the progression, main term $X_Nh(d_1)h(d_2)$ from Part~I, (17)--(18)) for all admissible pairs with $d_1d_2\le N^{3/4}$ and $24$ values of $N\equiv2\pmod4$ near $2\cdot10^6$ and $3\cdot10^6$, and compares $A_{\mathrm{sym}}=\sum_{d\le D}|R_d|$ with $A_{\mathrm{abs}}=\sum_{d_1d_2\le D}|R(d_1,d_2)|$ and with the random-sign baseline $A_{\mathrm{rnd}}$ (independent signs on the unordered splittings, averaged over $40$ draws). The symmetry $R(d_1,d_2)=R(d_2,d_1)$ holds to $10^{-10}$. Table~\ref{tab:ratios} gives the averages over the $24$ values of $N$ (\texttt{results/symmetric\_remainder.txt}).
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{c|ccc|ccc|cc}
+\toprule
+$\theta$ & \multicolumn{3}{c|}{$A_{\mathrm{sym}}/A_{\mathrm{abs}}$} & \multicolumn{3}{c|}{$A_{\mathrm{sym}}/A_{\mathrm{rnd}}$} & \multicolumn{2}{c}{with weight $4^{\omega(d)}$}\\
+ & all $d$ & $\omega(d)=2$ & $\omega(d)=3$ & all $d$ & $\omega(d)=2$ & $\omega(d)=3$ & all $d$ & random\\
+\midrule
+$0.50$ & $0.750$ & $0.669$ & $0.458$ & $0.968$ & $0.952$ & $0.898$ & $0.602$ & \\
+$0.60$ & $0.708$ & $0.687$ & $0.462$ & $0.975$ & $0.975$ & $0.924$ & $0.547$ & \\
+$0.70$ & $0.672$ & $0.688$ & $0.477$ & $0.976$ & $0.977$ & $0.949$ & $0.503$ & \\
+$0.75$ & $0.659$ & $0.692$ & $0.484$ & $0.980$ & $0.982$ & $0.962$ & $0.487$ & \\
+\midrule
+random signs & & $0.707$ & $0.500$ & $1$ & $1$ & $1$ & & \\
+\bottomrule
+\end{tabular}
+\caption{$\sum_{d\le N^\theta}|R_d|$ against $\sum_{d_1d_2\le N^\theta}|R(d_1,d_2;N)|$, averages over $24$ values of $N$; the standard deviations over $N$ are $0.01$--$0.05$ ($0.13$ for $\omega=3$ at $\theta=0.5$, where there are only $16$ such moduli). For $\omega(d)=1$ the ratio is $1$ exactly.}
+\label{tab:ratios}
+\end{table}
+
+The cancellation is real, exact in the sense of Proposition~\ref{prop:cancel}, and of square-root strength: $|R_d|$ is $0.67$--$0.69$ of $\sum|R(d_1,d_2)|$ for two prime factors (random signs: $1/\sqrt2=0.707$) and $0.46$--$0.48$ for three (random: $1/2$), i.e.\ $2$--$5\%$ below the random-sign value. The spectral reason is that the norm of $G_{1,d}$ is close to equidistributed over the joint eigenspaces. The script \texttt{symmetric\_norm\_share.py} computes, from the exact coefficients of all $G_{u,d/u}$ up to $2^{18}$, the Rankin--Selberg shares $\|P_\e G_{1,d}\|^2/\|G_{1,d}\|^2$ of every sign pattern $\e$ (\texttt{results/symmetric\_norm\_share.txt}); the patterns with $\prod\e_p\ne\chi(d)$ carry $<10^{-34}$, confirming (ii) numerically, and for $d=p_1p_2$ with both primes split the share of $(+,+)$ is $0.50$--$0.62$ ($0.503$ for $221=13\cdot17$, $0.625$ for $445=5\cdot89$), for $\omega(d)=3$ the share of $(+,+,+)$ is $0.35$--$0.38$ and for $\omega(d)=4$ it is $0.19$--$0.20$. These are shares of the norm; the sieve sees the coefficient $a(N)-a(N/2)$ with $N\equiv2\pmod4$, and at even $N$ the newforms of level $4d$ contribute nothing ($a_\varphi(2)=0$), so the sieve weighs the old and the new parts differently. Restricted to the combination $a(2n')-a(n')$, $n'\equiv1\pmod 4$, $(n',d)=1$, the same script gives the share $0.39$--$0.47$ for $(+,+)$ when $\omega(d)=2$, $0.20$ for $(+,+,+)$ and $0.105$--$0.109$ for $(+,+,+,+)$, against $1/2$, $1/4$, $1/8$ for equidistribution; and the remainders themselves give, as the empirical share $\langle(R(d,1)+R(p_1,p_2))^2\rangle/\langle2(R(d,1)^2+R(p_1,p_2)^2)\rangle$ over the $24$ values of $N$ and $67$ moduli $d=p_1p_2\le2000$ with both primes split, the value $0.424$. The two determinations agree, and both are below $1/2$ by the amount that Proposition~\ref{prop:cancel}(iii) removes (the oldforms of odd level, which are in the $(-,-)$-eigenspace).
+
+\subsection{Consequence for the sieve}
+Corollary~\ref{cor:Rd} replaces, in the remainder sum $2\sum_{m\mid P(z),\,m<y}4^{\omega(m)}|R_m|$ of the two-dimensional sieve (Part~II, (20)), the bound $|R_m|\le\sum_{d_1d_2=m}|R(d_1,d_2)|$ by $2^{\omega(m)}\sum_{t,t_1,s}|c\,a_{P^+G}(N')|$ with $\|P^+G\|\le\|G\|$, and the numerics say that in mean square the gain is the factor $(\text{share})^{1/2}\approx2^{-(\omega(m)-1)/2}$ against the trivial $2^{\omega(m)-1}$ terms: the algebraic cancellation realises the square-root cancellation among the $2^{\omega(m)-1}$ terms that one would expect from independent signs, and essentially nothing beyond it, because the eigenspaces share the norm almost equally. Since $2^{\omega(m)}=m^{o(1)}$, this is absorbed by the factor $N^\eta$ of condition (F1) in the proof of Part~I, Theorem~3.2, and does not change the level of distribution; it changes neither $(7,5)$ nor the constant $0.25$ of Part~II, Theorem~7.1 (the constant is governed by the main term, not by the remainder). The exact identity is nevertheless worth recording: it says that the two-dimensional sieve for $n(N-n)$ sees, at each modulus $d$, only the $W_p$-invariant part of $G_{t,d}$, and therefore none of the oldforms of odd level.
+
+\section{The dispersion form of the remainder sum}
+
+\subsection{The circle modulo $c$}
+\begin{lemma}\label{lem:circle}
+Let $c$ be odd and square-free, $(a,c)=1$ and $h=(h_1,h_2)\in\Z^2$. Then
+\[
+F_c(a;h):=\sum_{\substack{x,y\bmod c\\ x^2+y^2\equiv a\ (c)}}e\Bigl(\frac{h_1x+h_2y}{c}\Bigr)=\sum_{g\mid(c,h_1,h_2)}g\,\chi\Bigl(\frac cg\Bigr)\,S\Bigl(a,\ \overline4\,\frac{h_1^2+h_2^2}{g^2};\ \frac cg\Bigr),
+\]
+with $S(m,n;c)=\sum_{t\bmod c}^{*}e((mt+n\bar t)/c)$ the classical Kloosterman sum ($S(\cdot;1)=1$). For prime $c$ this reads $F_c(a;h)=\chi(c)S(a,\overline4|h|^2;c)+c\,[h\equiv0\ (c)]$.
+\end{lemma}
+\begin{proof}
+Detect the congruence by $\frac1c\sum_{t\bmod c}e(t(x^2+y^2-a)/c)$. For $(t,c)=g$, $t=gt'$, the sum $\sum_{x\bmod c}e((tx^2+h_1x)/c)$ vanishes unless $g\mid h_1$, and then equals $g\,e(-\overline{4t'}(h_1/g)^2/(c/g))\,G(t';c/g)$ by completing the square, where $G(t';c')=\sum_xe(t'x^2/c')=(t'/c')\,\varepsilon_{c'}\sqrt{c'}$ with $\varepsilon_{c'}^2=\chi(c')$ for odd square-free $c'$. Hence $G(t';c')^2=\chi(c')c'$, and
+\[
+F_c(a;h)=\sum_{g\mid(c,h)}\frac{g^2}{c}\cdot\chi\Bigl(\frac cg\Bigr)\frac cg\sum_{t'\bmod c/g}^{*}e\Bigl(\frac{-t'a-\overline{4t'}|h/g|^2}{c/g}\Bigr)=\sum_{g\mid(c,h)}g\,\chi\Bigl(\frac cg\Bigr)S\Bigl(a,\overline4|h/g|^2;\frac cg\Bigr),
+\]
+using $S(-m,-n;c')=S(m,n;c')$. The script \texttt{kloosterman\_check.py} verifies the identity for all $a$, $h$ and all odd primes $c\le61$, and the composite form for nine square-free composite $c\le105$ (\texttt{results/kloosterman\_check.txt}).
+\end{proof}
+
+So the Fourier transform of the circle $x^2+y^2\equiv a$ modulo $c$ is a \emph{classical} Kloosterman sum whose second argument is the norm $|h|^2$ of the dual variable, twisted only by the sign $\chi(c)$; no Sali\'e sum and no character sum of a different type occurs. This is the arithmetic reason why $r(n)$ in arithmetic progressions behaves like the divisor function: the Weil bound gives the asymptotic for $\sum_{n\equiv a\,(c),\,n\le Y}r(n)$ for $c\le Y^{2/3-\e}$, exactly as for $\tau(n)$.
+
+\subsection{The remainder as a trilinear form in Kloosterman sums}
+Let $m\equiv m'\equiv1\pmod4$ be coprime, $(mm',N)=1$, $N\equiv2\pmod4$, and let $T^{\mathrm{odd}}(m,m';N)$ be the part of $T(m,m';N)=\sum_{m\alpha+m'\beta=N}r(\alpha)r(\beta)$ with $\alpha$ odd, so that $a_G(N)-a_G(N/2)=T^{\mathrm{odd}}-M^{\mathrm{odd}}$ in \eqref{eq:Rdecomp}. In $T^{\mathrm{odd}}$ every term with $r(\alpha)r(\beta)\ne0$ has $\alpha\equiv\beta\equiv1\pmod4$, so $x^2+y^2=\alpha$ has $x+y$ odd, and $r(\beta)=8\sum_{k\mid\beta,\,k<\sqrt\beta}\chi(k)+4\chi(\sqrt\beta)[\beta=\square]$ by the symmetry $k\leftrightarrow\beta/k$ ($\chi(\beta/k)=\chi(k)$ for $\beta\equiv1\pmod 4$). Writing $\beta=(N-m\alpha)/m'$ and noting that $(k,m)=1$ automatically (a common prime would divide $N$),
+\begin{gather}
+T^{\mathrm{odd}}(m,m';N)=8\sum_{k<\sqrt{N/m'}}\chi(k)\,\mathcal N_k+4\sum_{j\ge1}\chi(j)\,r^{\mathrm{odd}}\Bigl(\frac{N-m'j^2}{m}\Bigr),\label{eq:Todd}\\
+\mathcal N_k=\#\bigl\{(x,y)\in\Z^2:\ x+y\text{ odd},\ x^2+y^2\equiv N\bar m\ (m'k),\ 0<x^2+y^2<Y_k:=(N-m'k^2)/m\bigr\},\notag
+\end{gather}
+where $r^{\mathrm{odd}}(\alpha)=r(\alpha)[\alpha\text{ odd}]$ and the second sum runs over $j$ with $m\mid N-m'j^2$; it is the number of representations of $N$ by the ternary form $m(x^2+y^2)+m'j^2$ with a sign, and is $O(N^{1/2+\e}m'^{-1/2})$ trivially.
+
+For the lattice-point count $\mathcal N_k$ (with a smooth cutoff $w$ at $Y_k$, the usual sharp-to-smooth passage costing a boundary term), Poisson summation on the residue classes modulo $2c$, $c=m'k$, gives
+\begin{equation}\label{eq:poisson}
+\mathcal N_k=\frac{Y_k}{2c^2}\sum_{\substack{h\in\Z^2\\ h_1\equiv h_2\ (2)}}\hat w\bigl(h\sqrt{Y_k}/(2c)\bigr)\,F_c\bigl(N\bar m;\ \bar2h\bigr),
+\end{equation}
+the factor $2[h_1\equiv h_2]$ (absorbed in $1/(2c^2)=2/(2c)^2$) being the Fourier transform of the parity condition and $\bar2h$ the Chinese-remainder twist. The term $h=0$ is $\frac{Y_k}{2c^2}\rho(N\bar m;c)$ with $\rho(a;c)=\#\{x^2+y^2\equiv a\ (c)\}=c\prod_{p\mid c}(1-\chi(p)/p)$, and the sum over $k$ of these terms is the Siegel main term $M^{\mathrm{odd}}(m,m';N)$ (the singular series of the quaternary form, written through the divisor structure of $r(\beta)$). By Lemma~\ref{lem:circle}, for the leading term $g=1$, $\chi(k)\cdot\chi(m'k)=\chi(m')=1$ and
+\[
+S\bigl(N\bar m,\ \overline{16}\,|h|^2;\ m'k\bigr)=S\bigl(16N,\ m|h|^2;\ m'k\bigr).
+\]
+The character $\chi(k)$ of the divisor expansion is exactly cancelled by the sign $\chi(c)$ of the Gauss sums. We have proved:
+
+\begin{proposition}\label{prop:dispersion}
+With the notation above,
+\begin{multline*}
+a_G(N)-a_G(N/2)=8\sum_{k<\sqrt{N/m'}}\ \frac{Y_k}{2(m'k)^2}\sum_{\substack{h\ne0\\ h_1\equiv h_2\ (2)}}\hat w\Bigl(\frac{h\sqrt{Y_k}}{2m'k}\Bigr)\\
+\times\sum_{g\mid(m'k,h)}g\,\chi\Bigl(\frac{m'k}{g}\Bigr)\chi(k)\,S\Bigl(N\bar m,\overline{16}\,\Bigl|\frac hg\Bigr|^2;\frac{m'k}g\Bigr)+\Sigma_\square+\Sigma_\partial,
+\end{multline*}
+where $\Sigma_\square$ is the ternary term of \eqref{eq:Todd} and $\Sigma_\partial$ the smoothing error; the term $g=1$ is
+\begin{equation}\label{eq:main}
+8\sum_{k<\sqrt{N/m'}}\frac{Y_k}{2(m'k)^2}\sum_{\substack{h\ne0\\ h_1\equiv h_2\ (2)}}\hat w\Bigl(\frac{h\sqrt{Y_k}}{2m'k}\Bigr)S\bigl(16N,\ m|h|^2;\ m'k\bigr).
+\end{equation}
+Consequently the remainder sum of the sieve at the level $N^\theta$, after the decomposition \eqref{eq:Rdecomp} (with the sieve weights and the coefficients $c$ collected into $\Lambda_m,\Lambda'_{m'}\ll3^{\omega}$, and with $m\le m'$ by the symmetry $n\leftrightarrow N-n$), is a trilinear form
+\begin{equation}\label{eq:trilinear}
+\mathfrak B=\sum_{m'}\Lambda'_{m'}\sum_{c\equiv0\ (m')}\ \sum_{m}\Lambda_m\sum_{j}b_{m,j}(c)\,S(16N,\ mj;\ c),\qquad b_{m,j}(c)=\frac{8Y_{c/m'}}{2c^2}\sum_{|h|^2=j}\hat w\Bigl(\frac{h\sqrt{Y_{c/m'}}}{2c}\Bigr),
+\end{equation}
+with the modulus $c=m'k$ in the progression $c\equiv0\pmod{m'}$, $c\le\sqrt{Nm'}$, the first argument $16N$ fixed, the second argument $n=mj$ with $j$ a norm, and smooth weights in $c$ and $h$.
+\end{proposition}
+
+\begin{remark}
+(i) The dual variable satisfies $|h|\ll m'k\sqrt{m/N}\,N^\e$; so the inner sum of \eqref{eq:main} is empty unless $k\gg\sqrt{N/m}/m'$, the modulus runs in $\sqrt{N/m}\ll c\le\sqrt{Nm'}$, and $n=m|h|^2\ll m^2m'^2k^2/N\le m^2m'$. The sum over $k$ has length $K\asymp\sqrt{N/m'}$.
+
+(ii) Opening the Kloosterman sum, \eqref{eq:main} is the Kloosterman refinement of the circle method for the quaternary form $Q_{m,m'}$, with the moduli $m'k$ ordered by the divisor structure of $r(\beta)$. Summing \eqref{eq:main} over $k$ with the Kuznetsov formula for $\Gamma_0(m')$ expresses it, for each $(m,j)$, through the Fourier coefficients $\rho_\ell(16N)\overline{\rho_\ell(mj)}$ of the Maass forms (and the Eisenstein series and the holomorphic forms) of level $m'$; the further sum $\sum_jr(j)\rho_\ell(mj)j^{-s}$ is, formally, the Rankin--Selberg convolution of $u_\ell$ with $\theta^2$, i.e.\ $L(s,u_\ell)L(s,u_\ell\otimes\chi)$ up to the factors at $p\mid m$, the Maass analogue of Theorem~6.7 of Part~II. The spectral side of the dispersion method is thus the family of products $L(\tfrac12+it_\ell,u_\ell)L(\tfrac12+it_\ell,u_\ell\otimes\chi)$ over the Maass spectrum of the \emph{sieve modulus} $m'$, weighted by $\rho_\ell(16N)$, while the holomorphic method of Parts I--II works at the level $4mm'$.
+
+(iii) This is the two-sided version of Linnik's problem $N=p+x^2+y^2$, for which the dispersion method was invented: there $\sum_pr(N-p)=4\sum_p\sum_{k\mid N-p}\chi(k)$ is a Titchmarsh-type sum with the moduli $k$ up to $N$ and the primes as the rough variable. Here both sides carry $r$, both carry sieve weights, and the divisor structure of one side ($\beta$) provides the moduli $m'k$ while the lattice structure of the other side ($\alpha=x^2+y^2$) provides the Kloosterman sums.
+\end{remark}
+
+\subsection{Exponent bookkeeping}
+In \eqref{eq:main}, for each $k$ the number of $h$ is $\asymp(m'k)^2m/N$ and the weight $Y_k/(2(m'k)^2)\asymp N/(m(m'k)^2)$, so each $k$ contributes $O(1)$ terms of weight $O(1)$ on average.
+\begin{itemize}[leftmargin=1.6em]
+\item \emph{Weil bound only.} $|S(16N,m|h|^2;c)|\le d(c)c^{1/2}(|h|^2,c)^{1/2}$ gives $|a_G(N)-a_G(N/2)|\ll N^\e\sum_{k\le\sqrt{N/m'}}(m'k)^{1/2}\ll N^{3/4+\e}m'^{-1/4}$, and the sum of absolute values over $mm'\le N^\theta$ is $\ll N^{3/4+\theta+\e}$: level $1/4$.
+\item \emph{The theta-function bound.} Theorem~1.2(ii) of Part~I, $|a_G(N)|\ll N^{1/2+\e}$, is smaller than the Weil bound by exactly $(N/m')^{1/4}=K^{1/2}$: it is equivalent to square-root cancellation in the sum over the moduli $c=m'k\equiv0\pmod{m'}$, $k\le K$, for the specific sequence $n=m|h|^2$ of second arguments. Summing absolute values over $mm'\le N^\theta$ gives the level $1/2$ (Part~I, Theorem~3.2).
+\item \emph{Cancellation over $m'$.} If $\sum_{m'\sim E}\Lambda'_{m'}\bigl(a_{G_{m,m'}}(N)-a_{G_{m,m'}}(N/2)\bigr)\ll N^{1/2+\e}E^{1/2}$ for each $m\le\Delta$ (square-root cancellation among the $E$ values of $m'$), the remainder is $\ll N^{1/2+\e}\Delta E^{1/2}$, which is $\ll N^{1-\delta}$ for $\Delta^2E\le N^{1-3\delta}$; with the balanced split $\Delta=E=N^{\theta/2}$ (the hardest case, which the sieve needs) this is $\theta<2/3$. The same conclusion follows from Part~II, Proposition~4.2, with a saving $E^{-1/2}$ in place of $(de)^{-\eta}$.
+\item \emph{Cancellation over $m'$ and $m$.} Square-root cancellation over both gives $N^{1/2+\e}(\Delta E)^{1/2}$ and the level $1-\e$.
+\end{itemize}
+The data of Part~II, Section~8.2 (the signed sums over $(d,e)$ are of the size of the root mean square, for all three weightings and all $\theta\le3/4$) are consistent with the last two items; they say nothing about a proof.
+
+\subsection{What the dispersion method must deliver, and what is available}
+The form \eqref{eq:trilinear} is the type of sum treated by Deshouillers and Iwaniec \cite[Theorems~9--12]{DI}, bilinear forms $\sum_{c\equiv0\,(q)}\sum_m\sum_na_mb_ng(c,m,n)S(m,\pm n;c)$ bounded through the Kuznetsov formula and the spectral large sieve, and by Drappeau's extension \cite[Theorem~2.1]{Drappeau} with a congruence condition on the modulus: in his normalisation, for $b_{n,r,s}$ supported on $n\le N_0$, $r\sim R$, $s\sim S$, moduli $sc$ with $c\sim C$ in a class modulo $q$ and $d\sim D$ in a class modulo $q$,
+\begin{gather*}
+\sum\sum b_{n,r,s}\,g(c,d,n,r,s)\,e\Bigl(\frac{n\,\overline{rd}}{sc}\Bigr)\ll(qCDN_0RS)^{\e}\,q^{3/2}K\,\|b\|_2,\\
+K^2=qCS(RS+N_0)(C+RD)+C^2DS\sqrt{(RS+N_0)R}+D^2N_0R/S .
+\end{gather*}
+To apply such a bound to \eqref{eq:trilinear} one has to overcome three specific features.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2.2em]
+\item \emph{The first argument is fixed.} In \eqref{eq:trilinear} there is no average over the first argument $16N$: the large-sieve inequalities for the Fourier coefficients $\rho_\ell(16N)$ at a single $16N\asymp N\gg c$ cost the factor $N^{1/2}$-type terms of the spectral large sieve (and, through the exceptional spectrum, $N^{\vartheta}$ with Kim--Sarnak $\vartheta=7/64$), whereas the known applications (BFI, Titchmarsh divisor problem) always average over a long variable in both arguments. The one-sided average that is available is over $n=mj$ with the coefficient $b_n=\sum_{mj=n}\Lambda_mr(j)\cdot(\text{weights})$, of length $\ll\Delta^2E$.
+\item \emph{The sieve weight sits on the divisibility class of the modulus.} The sum over $m'$ in \eqref{eq:trilinear} is over the \emph{class} $c\equiv0\pmod{m'}$ with the weight $\Lambda'_{m'}$. This is where BFI use the well-factorable structure of the linear sieve weights, $\Lambda'=\Lambda'_1*\Lambda'_2$ with $m'=m'_1m'_2$ in prescribed ranges, so that the modulus $c=m'_1m'_2k$ has two smooth factors; the weights of the two-dimensional sieve (DHR) are not well-factorable in Iwaniec's sense, and one would first have to go back to a vector or $\beta$-sieve with well-factorable weights, at the price of $(7,5)$.
+\item \emph{The hard range.} The Kloosterman regime is $c\in[\sqrt{N/m},\sqrt{Nm'}]$, always beyond $\sqrt N$; the Bessel argument $4\pi\sqrt{16N\cdot mj}/c\asymp m$ is of constant size in $k$, so the Kuznetsov transform does not localise the spectrum, and the whole spectrum of level $m'$ up to $t_\ell\ll m$ contributes.
+\end{enumerate}
+We have not carried out the estimation, and we make no claim of a level $>1/2$. What the computation establishes is the exact shape of the problem: after the theta-function saving (the sum over $k$), the remainder sum is $N^{1/2+\e}\sum_{m\le m'}|\Lambda_m\Lambda'_{m'}|$, and any power saving in the sum over the sieve modulus $m'$ of the Kloosterman sums \eqref{eq:main}, uniform in $m\le m'$, raises the level beyond $1/2$ (Part~II, Proposition~4.2); the heuristic ceiling of the method, square-root cancellation over $m'$, is the level $2/3$, which would give $(6,4)$ for every $N$ (Part~II, Table~4). Whether the specific levels $4/7$ or $13/25$ are attainable is open.
+
+\section{The dimension of the weighted sieve}
+
+\subsection{Where $2^{\Omega}$ enters}
+The weighted sieve of Part~II, Section~7.2, gives $W\ge X_NV(z)(L_2-\lambda R_2-o(1))$ for
+\[
+W=\sum_{\substack{n\in\cA\\ (n(N-n),P(z))=1}}w(n)\Bigl(1-\lambda\sum_{\substack{z\le p<y\\ p\mid n(N-n)}}\Bigl(1-\frac{\log p}{\log y}\Bigr)\Bigr),
+\]
+and the count of integers follows from $w(n)=16\cdot2^{\Omega(n(N-n))}\le2^{k+4}$ on the integers with positive weight. The pairs $(k,k')$ are decided by the inequalities $1/\lambda+2/b\le k+1$ and $1/\lambda+1/b\le k'+1$ together with $L_2-\lambda R_2>0$; the factor $2^{\Omega}$ enters only in the final division by $\max w$, i.e.\ in the constant $0.25$ of Theorem~7.1 and nowhere else. Removing it would improve the constant by at most $2^{k+4}$ and would not change $(k,k')$. The Buchstab identity does not help here either: $W$ is a sum of non-negative weights $w(n)\cdot(\text{Richert weight})$, and writing $w(n)=2^{j}\cdot16$ on $\{\Omega(n(N-n))=j\}$ one has $\#\{n\}\ge\sum_jW_j\ge W/2^{k+4}$ with $W_j\ge0$; without a lower bound for the individual $W_j$, which the sieve does not provide, the division by $2^{k+4}$ is the best possible.
+
+\subsection{The dimension}
+What the weights $r(n)r(N-n)$ really cost is the dimension. Under $w$, the density of $p\mid n(N-n)$ on $\cA$ is $2h(p)\sim4/p$ for split $p$ and $2h(q)\sim2/q^2$ for inert $q$, so $\sum_{p<z}\omega(p)/p=2\log\log z+O(1)$: dimension $\kappa=2$. Under the indicator weight $b(n)b(N-n)$ ($n$ and $N-n$ sums of two squares) the density of $p\mid n$ among the sums of two squares is $\sim1/p$ for split $p$ (since $n=pn'$ is a sum of two squares iff $n'$ is) and $\sim1/q^2$ for inert $q$, so the two sides together have $\sum_{p<z}\omega(p)/p=\log\log z+O(1)$: dimension $\kappa=1$, the dimension of Goldbach's problem. The factor $2$ in $r(pn')=2r(n')$ is this doubling of the density, not a weight attached to the sifted integers that could be dropped.
+
+The script \texttt{dimension\_benchmark.py} computes, with the sieve functions of Part~II (\texttt{dhr\_sieve.py}, $\kappa=1$ giving the linear sieve functions), the smallest attainable thresholds
+\[
+\min\Bigl(\frac RL+\frac2b\Bigr),\qquad\min\Bigl(\frac RL+\frac1b\Bigr),\qquad L=f_\kappa\Bigl(\frac\theta a\Bigr),\quad R=\kappa\int_a^b\Bigl(1-\frac tb\Bigr)F_\kappa\Bigl(\frac{\theta-t}a\Bigr)\frac{\dd t}t,
+\]
+over $0<a<b<\theta$, $a<\theta/\beta_\kappa$, for both dimensions (\texttt{results/dimension\_benchmark.txt}):
+
+\begin{center}\small
+\begin{tabular}{c|ccc|ccc}
+\toprule
+$\theta$ & \multicolumn{3}{c|}{$\kappa=2$ (weights $r(n)r(N-n)$)} & \multicolumn{3}{c}{$\kappa=1$ (indicator weights, hypothetical)}\\
+ & joint & side & $(k,k')$ & joint & side & $(k,k')$\\
+\midrule
+$1/2$ & $7.561$ & $5.065$ & $(7,5)$ & $5.181$ & $3.144$ & $(5,3)$\\
+$2/3$ & $6.373$ & $4.313$ & $(6,4)$ & $4.171$ & $2.602$ & $(4,2)$\\
+$4/5$ & $5.741$ & $3.889$ & $(5,3)$ & $3.663$ & $2.313$ & $(3,2)$\\
+$19/20$ & $5.212$ & $3.519$ & $(5,3)$ & $3.255$ & $2.069$ & $(3,2)$\\
+$1$ & $5.065$ & $3.414$ & $(5,3)$ & $3.144$ & $2.000$ & $(3,2)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The $\kappa=2$ column reproduces Part~II, Table~4, and at $\theta=1$ Wang's $P_2+P_3$ for the unweighted $n(N-n)$. The $\kappa=1$ column is what the same Richert weights would give for the sequence $b(n)b(N-n)$ if its remainders had the level $\theta$: $(5,3)$, i.e.\ $P_2+P_3$, already at $\theta=1/2$, and $(3,2)$, i.e.\ $N=P_1+P_2$, Chen's shape, from $\theta=4/5$ on. The dimension costs two prime factors on each count at every level. (The two thresholds are attained at different $(a,b)$; a simultaneous pair may need one more unit on one side, as in Part~II, Table~4.)
+
+\subsection{Why $r(pn')=2r(n')$ does not lower the dimension}
+Extracting a split prime $p\mid n$ from $S(\cA_p,z)$, $n=pn'$ with $p\nmid n'$, gives $w(n)=2r(n')r(N-pn')$, and the sum over $n'$ is the sifted sum of the sequence $\{n'\le N/p\}$ with the weights $r(n')r(N-pn')$, whose congruence sums $\sum_{d\mid n',\,e\mid N-pn'}r(n')r(N-pn')$ are the $T(t_1\tilde mp,\tilde m';N)$ of the pair $(dp,e)$. Its density at a split prime $q$ is again $2h(q)$ and its dimension again $2$; the factor $2$ is the main term $2h(p)X_N$ of $S(\cA_p,z)$ itself. Selberg's $\Lambda^2$ weights give an upper bound for $S(\cA_p,z)$ with the same main term and the same remainders. Chen's switching trick would bound $\sum_{p\sim P}S(\cA_p,z)$ by sieving the sequence $\{pn'\}$ jointly in $p$ and $n'$, which requires the remainders $\sum_{p\sim P}\bigl(T(dp,e;N)-M(dp,e;N)\bigr)$ for $de\le N^{\theta}$ and $P\ge y=N^b$ with $b\approx0.4$: moduli up to $N^{\theta+b}>N^{1/2}$, i.e.\ cancellation in the sum over the prime variable $p$ of the coefficients $a_{G_{dp,e}}(N)$. That is the problem of Section~2 with the modulus $m=dp$ carrying a prime variable, not an independent route.
+
+\subsection{What would lower it}
+A level of distribution for mixed sequences $b(n)r(N-n)$ or $b(n)b(N-n)$ (dimension $3/2$ and $1$) would give the $\kappa=1$ column, or an intermediate one, with the same sieve; but $\sum_{d\mid n}b(n)e(nz)$ is not a modular form, and the only tools for $b$ are the sieve itself (the Brun--Hooley type results for sums of two squares in short intervals and progressions) or, for $1_{\mathrm{prime}}(n)r(N-n)$, the dispersion method of Linnik and Hooley. We record the comparison as the quantitative content of ``breaking the $2^\Omega$ penalty'': it is the passage from $(7,5)$ to $(5,3)$ at the level $1/2$, and from $(5,3)$ to $(3,2)$ at the level $1$, and it requires a new source of remainder control, not a rearrangement of the weights.
+
+\begin{thebibliography}{9}
+\bibitem{AL} A.~O.~L.~Atkin, J.~Lehner, \emph{Hecke operators on $\Gamma_0(m)$}, Math. Ann. \textbf{185} (1970), 134--160.
+\bibitem{BFI} E.~Bombieri, J.~B.~Friedlander, H.~Iwaniec, \emph{Primes in arithmetic progressions to large moduli}, Acta Math. \textbf{156} (1986), 203--251.
+\bibitem{ChenI} R.~Chen, \emph{Sums of two squares with few prime factors via theta series of quaternary forms}, preprint, version 3 (2026), \url{https://github.com/Ruqing1963/two-squares-theta-level}.
+\bibitem{ChenII} R.~Chen, \emph{The mean square of the error term, the norm of the cusp form, and the two-dimensional sieve}, preprint (2026), \url{https://github.com/Ruqing1963/two-squares-mean-square}.
+\bibitem{DI} J.-M.~Deshouillers, H.~Iwaniec, \emph{Kloosterman sums and Fourier coefficients of cusp forms}, Invent. Math. \textbf{70} (1982), 219--288.
+\bibitem{Drappeau} S.~Drappeau, \emph{Sums of Kloosterman sums in arithmetic progressions, and the error term in the dispersion method}, Proc. London Math. Soc. \textbf{114} (2017), 684--732; \href{https://arxiv.org/abs/1504.05549}{arXiv:1504.05549}.
+\bibitem{Linnik} Yu.~V.~Linnik, \emph{The Dispersion Method in Binary Additive Problems}, Transl. Math. Monogr. \textbf{4}, Amer. Math. Soc., 1963.
+\end{thebibliography}
+
+\end{document}
