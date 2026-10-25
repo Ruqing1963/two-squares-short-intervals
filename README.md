@@ -29,13 +29,22 @@ Section 7), written after Parts I and II were finalised. Nothing here is part of
      Proposition 5.2: the density at p changes only if the mollifier contains p, so acting on the Richert range costs
      4b (two-sided) or 2b (one-sided) in level; the hybrid sieve is worse than (7,5) for every xi >= a (8.57/5.60 and
      8.04/5.33 against 7.56/5.07).
+  6. **The weight function at the level 1/2.** A linear programme over all non-negative weight functions g on [a, b)
+     (constraints G_{k'+1}(1) >= 1, G_{(k+1)/2}(1) >= 1/2 with G_k(S) = inf sum g(t_i) over the simplex, evaluated by
+     dynamic programming and added as cutting planes) shows that the optimal g is the linear Richert weight itself:
+     the 0.030 gap to (7,4) is structural. The vector-sieve upper bound F_1 F_1 never beats F_2, and an explicit
+     subtraction of the five-prime integers lies outside the level. Section 2.5 substitutes Drappeau's Theorem 2.1
+     and the Kuznetsov/large-sieve route into the trilinear form: in every assignment the single first argument 16N
+     is the term that blocks theta > 1/2.
 * `code/` (the scripts import the modules of Part II from `../two-squares-mean-square/code`):
   `symmetric_remainder.py` (all R(d1,d2;N) exactly, 24 values of N near 2e6, ratios and the empirical eigenspace share),
   `symmetric_norm_share.py` (Rankin-Selberg shares of the joint Atkin-Lehner eigenspaces of G_{1,d}, also restricted to the
   residue classes the sieve sees), `kloosterman_check.py` (Lemma 2.1 for prime and composite square-free moduli),
   `dimension_benchmark.py` (Richert thresholds for kappa = 1 and kappa = 2), `kloosterman_correlation.py` (sizes and
   correlations of the Kloosterman sums of Section 4), `mollified_benchmark.py` (hybrid sieve thresholds of Section 5,
-  including the DHR constants for kappa = 3/2).
-* `results/`: the outputs of the six scripts.
+  including the DHR constants for kappa = 3/2), `optimal_weights.py` (LP over the weight function, Section 6).
+* `results/`: the outputs of the seven scripts.
+* The positive results (Sections 1, 3.2, 5.1-5.2, 2.1-2.2 and the bookkeeping) have been integrated into Part II
+  (Sections 7.3, 7.5 and 8.1 there).
 
 Floating point throughout; evidence, not proof.
