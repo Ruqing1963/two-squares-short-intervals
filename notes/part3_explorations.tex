@@ -318,10 +318,10 @@ C(c_1,c_2)=\sum_hW\Bigl(\frac hH\Bigr)S(16N,m|h|^2;c_1)\,S(16N,m|h|^2;c_2),\qqua
 
 \subsection{Poisson in $h$ for the off-diagonal terms}
 Opening the two Kloosterman sums in \eqref{eq:corr}, with $g=(c_1,c_2)$ and $q=[c_1,c_2]=c_1c_2/g$,
-\[
-C(c_1,c_2)=\sum_{t_1\bmod c_1}^*\sum_{t_2\bmod c_2}^*e\Bigl(\frac{16Nt_1}{c_1}+\frac{16Nt_2}{c_2}\Bigr)\,\mathcal G(\lambda),\qquad
-\mathcal G(\lambda)=\sum_{h\in\Z^2}W\Bigl(\frac hH\Bigr)e\Bigl(\frac{\lambda|h|^2}{q}\Bigr),\quad \lambda=m\Bigl(\bar t_1\frac{c_2}g+\bar t_2\frac{c_1}g\Bigr).
-\]
+\begin{gather*}
+C(c_1,c_2)=\sum_{t_1\bmod c_1}^*\sum_{t_2\bmod c_2}^*e\Bigl(\frac{16Nt_1}{c_1}+\frac{16Nt_2}{c_2}\Bigr)\,\mathcal G(\lambda),\\
+\mathcal G(\lambda)=\sum_{h\in\Z^2}W\Bigl(\frac hH\Bigr)e\Bigl(\frac{\lambda|h|^2}{q}\Bigr),\qquad \lambda=m\Bigl(\bar t_1\frac{c_2}g+\bar t_2\frac{c_1}g\Bigr).
+\end{gather*}
 The inner sum is a two-dimensional theta sum of length $H$ and modulus $q$. Poisson summation (write $h=u+qv$, $u\bmod q$) gives, for $(\lambda,q)=1$,
 \[
 \mathcal G(\lambda)=\frac{H^2}{q^2}\sum_{\ell\in\Z^2}\hat W\Bigl(\frac{H\ell}q\Bigr)\sum_{u\bmod q}e\Bigl(\frac{\lambda|u|^2+\ell\cdot u}{q}\Bigr)=\frac{H^2}{q^2}\sum_{\ell\in\Z^2}\hat W\Bigl(\frac{H\ell}q\Bigr)G(\lambda;q)^2\,e\Bigl(-\frac{\overline{4\lambda}\,|\ell|^2}{q}\Bigr),
