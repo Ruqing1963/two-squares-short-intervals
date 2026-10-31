@@ -11,7 +11,10 @@ the notes are also mirrored in `notes/`); Section 7, the level of distribution i
 * **Proposition 7.2 (conditional).** The short-interval mean square Σ_{X<n≤X+H} |a_G(n)|² ≪ X^η (H + L) X ‖G‖²/L
   would raise the level to (1 + Δ)/2 for every Δ > 0. This is a large-sieve inequality for the Poincaré series of the
   interval, λ_max ≪ (1 + H/L)/X, sharp, and its Kloosterman form is the obstacle of Section 2.4 in its symmetric shape.
-  `short_interval_mean_square.py` tests it numerically on the pairs of Part II.
+  `short_interval_mean_square.py` tests it on the pairs of Part II (coefficients exact to 2^21, all windows with
+  X in [2^19, 2^20]): the coefficient mass of G_{m,m'} is spread at every scale down to H = 16, independently of L
+  (the maximal window ratio is 4-6.5 at H = 16 and 1.0-1.1 at H = 2^16 for L from 20 to 41612), so the hypothesis
+  holds for these forms with room to spare and without the term L.
 
 Working notes and scripts around the level of distribution 1/2 of r(n) r(N-n) (Part I, Theorem 3.2; Part II,
 Section 7), written after Parts I and II were finalised. Nothing here is part of either paper.
