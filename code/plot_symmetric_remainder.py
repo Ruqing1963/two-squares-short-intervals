@@ -48,8 +48,7 @@ for om, col, lab, ref in ((2, BLUE, r"$\omega(d)=2$", 1 / np.sqrt(2)), (3, ORANG
     s = np.array(series[om])
     ax.errorbar(s[:, 0], s[:, 1], yerr=s[:, 2], color=col, lw=1.8, marker="o", ms=3.5, capsize=2, label=lab)
     if ref is not None:
-        ax.axhline(ref, color=col, lw=1, ls="--")
-        ax.text(0.405, ref + 0.012, f"random signs: {ref:.3f}", color=col, fontsize=7.5)
+        ax.axhline(ref, color=col, lw=1, ls="--", label=f"random signs: {ref:.3f}")
 ax.set_xlabel(r"level $\theta$ ($d\leq N^\theta$)")
 ax.set_ylabel(r"$\sum_d|R_d|\,/\,\sum_{d_1d_2=d}|R(d_1,d_2;N)|$")
 ax.set_title("(a) the symmetric remainder against the absolute sum (24 values of $N$)", fontsize=10)
