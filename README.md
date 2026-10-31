@@ -1,7 +1,9 @@
 # Sums of two squares with few prime factors, III: working notes and the level of distribution in short intervals
 
 This repository holds the working notes `notes/part3_explorations.pdf` (20 pages) written after Parts I and II
-(`two-squares-theta-level`, `two-squares-mean-square`), the scripts behind them, and their outputs. Sections 1, 3, 5
+([two-squares-theta-level](https://github.com/Ruqing1963/two-squares-theta-level), DOI 10.5281/zenodo.23826176;
+[two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square), DOI 10.5281/zenodo.23826297), the
+scripts behind them, and their outputs. Sections 1, 3, 5
 and the conclusions of Sections 2, 4 and 6 have been incorporated into Part II (Sections 7.3-7.5 and 8.1 there, where
 the notes are also mirrored in `notes/`); Section 7, the level of distribution in short intervals, is new here:
 
