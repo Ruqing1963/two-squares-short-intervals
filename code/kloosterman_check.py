@@ -73,3 +73,47 @@ for q in [15, 21, 33, 35, 39, 55, 65, 77, 105]:
     overall = max(overall, worst)
     print(f"q = {q}: identity holds to {worst:.1e}")
 print("max deviation over the composite q:", overall)
+
+# general odd q (prime powers allowed): the sign chi(q/g) is replaced by chi((q/g)*), where c* is the product of the
+# primes dividing c to an ODD power (G(t; p^nu)^2 = p^nu for nu even and chi(p) p^nu for nu odd):
+#    F_q(a;h) = sum_{g | (q,h)} g chi((q/g)*) S(a, 4bar |h/g|^2; q/g).
+def star(c):
+    s = 1
+    d = 3
+    while d * d <= c:
+        v = 0
+        while c % d == 0:
+            c //= d
+            v += 1
+        if v % 2:
+            s *= d
+        d += 2
+    if c > 1:
+        s *= c
+    return s
+
+print("\nodd q with square factors: F_q(a;h) = sum_{g | (q,h)} g chi((q/g)*) S(a, 4bar |h/g|^2; q/g)")
+overall = 0.0
+for q in [9, 25, 27, 45, 49, 63, 75, 81, 99, 117, 135]:
+    worst = 0.0
+    xs = np.arange(q)
+    sq = (xs[:, None] ** 2 + xs[None, :] ** 2) % q
+    divs = [g for g in range(1, q + 1) if q % g == 0]
+    for a in [a for a in range(1, q) if gcd(a, q) == 1][:5]:
+        X, Y = np.nonzero(sq == a)
+        for h1 in range(0, q, 1 if q <= 49 else 2):
+            for h2 in range(0, q, 1 if q <= 27 else 3):
+                lhs = np.sum(e(h1 * X + h2 * Y, q))
+                rhs = 0
+                for g in divs:
+                    if h1 % g or h2 % g:
+                        continue
+                    c = q // g
+                    if c == 1:
+                        rhs += g
+                        continue
+                    rhs += g * jacobi_minus1(star(c)) * kloosterman(a % c, (pow(4, -1, c) * (((h1 // g) ** 2 + (h2 // g) ** 2))) % c, c)
+                worst = max(worst, abs(lhs - rhs))
+    overall = max(overall, worst)
+    print(f"q = {q}: identity holds to {worst:.1e}")
+print("max deviation over the non-square-free q:", overall)

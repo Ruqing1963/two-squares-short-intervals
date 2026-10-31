@@ -1,5 +1,7 @@
 # Sums of two squares with few prime factors, III: working notes and the level of distribution in short intervals
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23826860.svg)](https://doi.org/10.5281/zenodo.23826860)
+
 This repository holds the working notes `notes/part3_explorations.pdf` (20 pages) written after Parts I and II
 ([two-squares-theta-level](https://github.com/Ruqing1963/two-squares-theta-level), DOI 10.5281/zenodo.23826176;
 [two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square), DOI 10.5281/zenodo.23826297), the
@@ -16,7 +18,13 @@ the notes are also mirrored in `notes/`); Section 7, the level of distribution i
   `short_interval_mean_square.py` tests it on the pairs of Part II (coefficients exact to 2^21, all windows with
   X in [2^19, 2^20]): the coefficient mass of G_{m,m'} is spread at every scale down to H = 16, independently of L
   (the maximal window ratio is 4-6.5 at H = 16 and 1.0-1.1 at H = 2^16 for L from 20 to 41612), so the hypothesis
-  holds for these forms with room to spare and without the term L.
+  holds for these forms with room to spare and without the term L. Conjecture 7.3 states this bound for the theta
+  forms (at H = 1 it is the individual conjecture of Part II, at H = X the mean-square theorem), and Corollary 7.4
+  shows that it would give the level 1 − ε for almost all N in every interval of length X^Δ, Δ > 0.
+* The notes also record what is NOT proved: the trilinear form of Section 2 is the leading term (the terms g > 1, the
+  ternary term and the smoothing error are not carried out), the Poisson analysis of Section 4 is bookkeeping under the
+  most favourable assumption, and the optimality of Richert's weight in Section 6 is numerical (an LP on a grid), not
+  a theorem.
 
 Working notes and scripts around the level of distribution 1/2 of r(n) r(N-n) (Part I, Theorem 3.2; Part II,
 Section 7), written after Parts I and II were finalised. Nothing here is part of either paper.

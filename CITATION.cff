@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the notes."
+title: "Sums of two squares with few prime factors, III: working notes and the level of distribution in short intervals"
+type: software
+authors:
+  - family-names: Chen
+    given-names: Ruqing
+    affiliation: "GUT Geoservice Inc., Montreal, Canada"
+    email: ruqing@hotmail.com
+doi: 10.5281/zenodo.23826860
+date-released: 2026-10-30
+version: "1.0"
+url: "https://doi.org/10.5281/zenodo.23826860"
+license: MIT
+repository-code: "https://github.com/Ruqing1963/two-squares-short-intervals"
+keywords:
+  - sums of two squares
+  - almost primes
+  - sieve methods
+  - theta series
+  - Atkin-Lehner involutions
+  - Kloosterman sums
+  - dispersion method
+  - level of distribution
+  - short intervals
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Chen
+      given-names: Ruqing
+  title: "Notes towards Part III: the symmetric remainder, the dispersion form of the remainder sum, and the dimension of the weighted sieve"
+  year: 2026
+  notes: "working notes"

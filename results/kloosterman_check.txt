@@ -28,3 +28,17 @@ q = 65: identity holds to 6.4e-13
 q = 77: identity holds to 1.6e-12
 q = 105: identity holds to 3.5e-12
 max deviation over the composite q: 3.462481864251894e-12
+
+odd q with square factors: F_q(a;h) = sum_{g | (q,h)} g chi((q/g)*) S(a, 4bar |h/g|^2; q/g)
+q = 9: identity holds to 3.1e-14
+q = 25: identity holds to 1.0e-13
+q = 27: identity holds to 3.1e-13
+q = 45: identity holds to 4.7e-13
+q = 49: identity holds to 1.1e-12
+q = 63: identity holds to 1.6e-12
+q = 75: identity holds to 1.3e-12
+q = 81: identity holds to 2.0e-12
+q = 99: identity holds to 2.8e-12
+q = 117: identity holds to 3.3e-12
+q = 135: identity holds to 2.8e-12
+max deviation over the non-square-free q: 3.2754401705733782e-12
