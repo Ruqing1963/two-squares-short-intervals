@@ -6,7 +6,7 @@ Part III of the series after Part I ([two-squares-theta-level](https://github.co
 DOI 10.5281/zenodo.23826176) and Part II ([two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square),
 DOI 10.5281/zenodo.23826297). The repository holds
 
-* `paper/two_squares_part3.tex` (+ PDF, 32 pages, 4 figures): the paper;
+* `paper/two_squares_part3.tex` (+ PDF, 34 pages, 4 figures): the paper;
 * `notes/part3_explorations.tex` (+ PDF): the working notes from which the paper grew (also mirrored in Part II, `notes/`);
 * `code/`: the scripts (they import the modules of Part II from `../two-squares-mean-square/code`);
 * `results/`: their outputs; `figures/`: the four figures (PDF and PNG).
@@ -59,12 +59,18 @@ results leave open.
    term.
 5. **The bilinear form in the two moduli (Section 4.5).** The Chinese remainder theorem factors S(16N, n; m'k) and
    writes the remainder as a bilinear form in (k, m') in which the fixed argument enters modulo m' as 16N k̄; the mixing
-   of k̄ is real and already used by the theta bound, so a saving must be bilinear (as in BFI, DFI). Section 6.4 (end):
-   the LP covers separable weights only; pair weights lead to a larger LP with the same inputs, Chen's switching to the
-   remainder problem of Section 3 with a prime variable inside the modulus.
+   of k̄ is real and already used by the theta bound, so a saving must be bilinear (as in BFI, DFI). Section 6.4 (pair
+   weights): the sieve accepts weights with a term g₂(t_p, t_q) for each pair of prime factors, sieved at the level
+   N^{θ−t_p−t_q} (Proposition 6.1); the LP extends to them (all 5·10⁶ five-prime configurations enumerated, cutting
+   planes) and its solution is the separable linear weight with g₂ ≡ 0, at every a, for (7,4), (6,4), (7,5), and even
+   with every F₂ set to 1; the pair term enters only when its cost is cut by more than 40 %, and (7,4) needs 80 %.
+   Proposition 6.2 (LP duality) explains why: the optimal dual measure on the binding five-prime configurations has
+   less mass on every pair cell than the cell costs. What binds (7,4) is the budget Σ t_i ≤ 1, which the linear weight
+   already exhausts, not the number of primes. Section 6.5 (end): Chen's switching leads to the remainder problem of
+   Section 3 with a prime variable inside the modulus.
 
 What is proved: Lemma 2.1, Propositions 2.2, 2.4, Lemma 3.1, Proposition 3.2, Theorems 5.1, 7.1 and 8.1, Propositions
-5.2, 7.2, 8.4, 8.5, Corollaries 7.4 and 8.2 (7.2 and 7.4 conditional). What is not: the exponent bookkeeping of
+5.2, 6.1, 6.2, 7.2, 8.4, 8.5, Corollaries 7.4 and 8.2 (7.2 and 7.4 conditional). What is not: the exponent bookkeeping of
 Sections 3.3–3.5 and 4 concerns the leading term of Proposition 3.2 under the most favourable assumptions; the
 optimality of Richert's weight is the solution of an LP on a grid; the comparisons with random signs, the eigenspace
 shares and the short-interval ratios are numerical observations.
@@ -73,7 +79,7 @@ shares and the short-interval ratios are numerical observations.
 
 `symmetric_remainder.py`, `symmetric_norm_share.py` (Section 2.4), `kloosterman_check.py` (Lemma 3.1),
 `kloosterman_correlation.py` (Section 4), `dimension_benchmark.py`, `simultaneous_pairs.py`, `mollified_benchmark.py`
-(Section 5), `optimal_weights.py` (Section 6), `short_interval_mean_square.py`, `short_interval_spectral.py`
+(Section 5), `optimal_weights.py`, `optimal_weights_2d.py` (Section 6), `short_interval_mean_square.py`, `short_interval_spectral.py`
 (Sections 7–8), and the plotting scripts `plot_symmetric_remainder.py`, `plot_kloosterman_correlation.py`,
 `plot_sieve_barriers.py`, `plot_short_interval.py` (Figures 1–4). Outputs in `results/`.
 
