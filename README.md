@@ -1,7 +1,17 @@
-# Notes towards Part III
+# Sums of two squares with few prime factors, III: working notes and the level of distribution in short intervals
 
-(Archived: the notes, scripts and results now live in the repository of Part II, `two-squares-mean-square`, in
-`notes/`, `code/` and `results/`; this local repository is kept as the development history.)
+This repository holds the working notes `notes/part3_explorations.pdf` (20 pages) written after Parts I and II
+(`two-squares-theta-level`, `two-squares-mean-square`), the scripts behind them, and their outputs. Sections 1, 3, 5
+and the conclusions of Sections 2, 4 and 6 have been incorporated into Part II (Sections 7.3-7.5 and 8.1 there, where
+the notes are also mirrored in `notes/`); Section 7, the level of distribution in short intervals, is new here:
+
+* **Theorem 7.1 (unconditional).** For H = X^Δ with Δ > 1/2, all but O(H X^{-ε/4}) of the N ≡ 2 (mod 4) in
+  (X, X+H] have the level of distribution Δ − 3ε for r(n) r(N − n); hence (6,4) for almost all N in every interval of
+  length X^{2/3+ε} and (5,4) in every interval of length X^{19/20+ε}.
+* **Proposition 7.2 (conditional).** The short-interval mean square Σ_{X<n≤X+H} |a_G(n)|² ≪ X^η (H + L) X ‖G‖²/L
+  would raise the level to (1 + Δ)/2 for every Δ > 0. This is a large-sieve inequality for the Poincaré series of the
+  interval, λ_max ≪ (1 + H/L)/X, sharp, and its Kloosterman form is the obstacle of Section 2.4 in its symmetric shape.
+  `short_interval_mean_square.py` tests it numerically on the pairs of Part II.
 
 Working notes and scripts around the level of distribution 1/2 of r(n) r(N-n) (Part I, Theorem 3.2; Part II,
 Section 7), written after Parts I and II were finalised. Nothing here is part of either paper.
