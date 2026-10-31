@@ -31,22 +31,32 @@ def LR(D, k0, theta, a, xi, b, nu=400):
     return L, R
 
 
+CURVES = []
+
+
 def scan(D, k0, sides, label, out):
     best_j = best_s = None
     for xi in np.arange(0.02, 0.125, 0.0025):
         theta = 0.5 - 2 * sides * xi
         if theta <= 0:
             continue
+        bj = bs = None
         for a in np.arange(0.01, min(xi, theta / D.beta) + 1e-9, 0.0025):
             for b in np.arange(a + 0.02, theta - 0.004, 0.005):
                 L, R = LR(D, k0, theta, a, xi, b)
                 if L <= 0:
                     continue
                 jt, sd = R / L + 2 / b, R / L + 1 / b
+                if bj is None or jt < bj:
+                    bj = jt
+                if bs is None or sd < bs:
+                    bs = sd
                 if best_j is None or jt < best_j[0]:
                     best_j = (jt, sd, xi, theta, a, b, L, R)
                 if best_s is None or sd < best_s[1]:
                     best_s = (jt, sd, xi, theta, a, b, L, R)
+        if bj is not None:
+            CURVES.append((label.split(',')[0], float(xi), float(theta), float(bj), float(bs)))
     for tag, r in (("best joint", best_j), ("best side ", best_s)):
         out.append(f"   {label}: {tag}: 1/lam+2/b = {r[0]:.3f}, 1/lam+1/b = {r[1]:.3f} at xi = {r[2]:.4f} "
                    f"(theta_eff = {r[3]:.3f}), a = {r[4]:.4f}, b = {r[5]:.3f}, L = {r[6]:.4f}, R = {r[7]:.4f}")
@@ -84,3 +94,7 @@ if __name__ == "__main__":
     print(text)
     with open(os.path.join(HERE, '..', 'results', 'mollified_benchmark.txt'), 'w', encoding='utf-8') as fh:
         fh.write(text + "\n")
+    with open(os.path.join(HERE, '..', 'results', 'mollified_curves.txt'), 'w', encoding='utf-8') as fh:
+        fh.write("variant xi theta_eff best_joint best_side\n")
+        for row in CURVES:
+            fh.write(f"{row[0].replace(' ', '_')} {row[1]:.4f} {row[2]:.4f} {row[3]:.4f} {row[4]:.4f}\n")

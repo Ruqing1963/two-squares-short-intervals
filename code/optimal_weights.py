@@ -184,6 +184,10 @@ if __name__ == "__main__":
                 best = (marg, a, b, g, Wt)
         marg, a, b, g, Wt = best
         out.append(f"   BEST for ({k},{kp}): margin {marg:+.4f} at a = {a:.4f}")
+        _, blin, _, _ = best_linear(a, k, kp)
+        np.savez(os.path.join(HERE, '..', 'results', f'optimal_weights_{k}{kp}.npz'), t=Wt.t[:Wt.nvar], g=g, a=a,
+                 margin=marg, b_linear=blin, conf4=np.array(Wt.Gk(g, 4)[1]), conf5=np.array(Wt.Gk(g, 5)[1]),
+                 conf6=np.array(Wt.Gk(g, 6)[1]), G4=Wt.Gk(g, 4)[0], G5=Wt.Gk(g, 5)[0], G6=Wt.Gk(g, 6)[0])
         tt = Wt.t[:Wt.nvar]
         samp = [(float(tt[i]), float(g[i])) for i in range(0, Wt.nvar, max(1, Wt.nvar // 16))]
         out.append("      g(t) at sample points: " + ", ".join(f"g({t:.3f})={v:.3f}" for t, v in samp))

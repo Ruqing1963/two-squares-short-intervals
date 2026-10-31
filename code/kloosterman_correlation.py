@@ -90,3 +90,6 @@ for k in ks:
     print(f"   quadratic form / trace: signs mu {qf_mu:.2f}, all +1 {qf_one:.2f}, random signs (mean of 200) {qf_rnd:.2f}  "
           f"(1 = square-root cancellation over m', {len(mps)} = none)")
     sys.stdout.flush()
+    import os
+    np.savez(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'results', f'kloosterman_correlation_k{k}.npz'),
+             M=M, mps=np.array(mps), k=k, N=N, m=m)

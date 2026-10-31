@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite the notes."
-title: "Sums of two squares with few prime factors, III: working notes and the level of distribution in short intervals"
+message: "If you use this repository, please cite the paper."
+title: "Sums of two squares with few prime factors, III: the dispersion obstacle, sieve barriers at the level 1/2, and short-interval mean squares"
 type: software
 authors:
   - family-names: Chen
@@ -28,6 +28,6 @@ preferred-citation:
   authors:
     - family-names: Chen
       given-names: Ruqing
-  title: "Notes towards Part III: the symmetric remainder, the dispersion form of the remainder sum, and the dimension of the weighted sieve"
+  title: "Sums of two squares with few prime factors, III: the dispersion obstacle, sieve barriers at the level 1/2, and short-interval mean squares"
   year: 2026
-  notes: "working notes"
+  notes: "preprint"

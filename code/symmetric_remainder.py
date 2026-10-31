@@ -34,7 +34,7 @@ sys.path.insert(0, os.path.join(HERE, '..', '..', 'two-squares-mean-square', 'co
 from sup_error_scan import r_table, factor   # noqa: E402
 
 Ns = [int(a) for a in sys.argv[1:]] or [2000002, 2000006, 2000018, 3000002] + [2000030 + 4 * j for j in range(20)]
-THETAS = (0.5, 0.6, 0.7, 0.75)
+THETAS = tuple(float(x) for x in np.round(np.arange(0.40, 0.7501, 0.025), 3))
 THETA_MAX = 0.75
 rng = np.random.default_rng(7)
 N_RND = 40
@@ -195,15 +195,21 @@ if __name__ == "__main__":
         print("\n".join(out[-10:]), flush=True)
     # averages of the ratios over the N
     out.append("\nAverages over the %d values of N of the ratios A_sym/A_abs, A_sym/A_rnd, W4_sym/W4_abs:" % len(Ns))
+    curves = {}
     for th in THETAS:
         for omega in (0, 1, 2, 3):
             vals = [t[(th, omega)] for t in tables if (th, omega) in t]
             if not vals:
                 continue
             v = np.array(vals)
-            out.append(f"   theta = {th:.2f}, omega = {'all' if omega == 0 else omega}: "
+            out.append(f"   theta = {th:.3f}, omega = {'all' if omega == 0 else omega}: "
                        f"sym/abs = {v[:, 0].mean():.3f} +- {v[:, 0].std():.3f}, sym/rnd = {v[:, 1].mean():.3f} +- {v[:, 1].std():.3f}, "
                        f"W4 sym/abs = {v[:, 2].mean():.3f}")
+            curves[f"{th:.3f},{omega}"] = [float(v[:, 0].mean()), float(v[:, 0].std()), float(v[:, 1].mean()),
+                                            float(v[:, 2].mean()), int(len(vals))]
+    import json
+    with open(os.path.join(HERE, '..', 'results', 'symmetric_remainder_curves.json'), 'w', encoding='utf-8') as fh:
+        json.dump(curves, fh, indent=1)
     # empirical s_{++}(d) for d = p1 p2 across the N: (R(d,1) + R(p1,p2))^2 / (2 (R(d,1)^2 + R(p1,p2)^2))
     out.append("\nEmpirical joint-(+1) share s_{++}(d) = <(R(d,1)+R(p1,p2))^2> / <2(R(d,1)^2 + R(p1,p2)^2)> over the N, "
                "for d = p1 p2 <= 2000 (both primes = 1 mod 4 first, then mixed):")
