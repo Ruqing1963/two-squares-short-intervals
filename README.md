@@ -1,5 +1,8 @@
 # Notes towards Part III
 
+(Archived: the notes, scripts and results now live in the repository of Part II, `two-squares-mean-square`, in
+`notes/`, `code/` and `results/`; this local repository is kept as the development history.)
+
 Working notes and scripts around the level of distribution 1/2 of r(n) r(N-n) (Part I, Theorem 3.2; Part II,
 Section 7), written after Parts I and II were finalised. Nothing here is part of either paper.
 

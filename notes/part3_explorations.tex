@@ -29,7 +29,7 @@
 
 \title{Notes towards Part III:\\ the symmetric remainder, the dispersion form\\ of the remainder sum, and the dimension of the weighted sieve}
 \author{Ruqing Chen}
-\date{October 25, 2026 --- working notes, not for circulation}
+\date{October 2026 --- working notes accompanying Part II}
 
 \begin{document}
 \maketitle
@@ -47,7 +47,7 @@ with $h(p)=(2p-1)/(p(p+1))$ for $p\equiv1$, $h(q)=1/(q(q-1))$ for $q\equiv3\pmod
 \begin{multline}\label{eq:Rdecomp}
 R(d_1,d_2;N)=\sum_{t\mid N^\flat}\mu(t)\sum_{\substack{t_1=tu\\ u\mid t}}c_t(t_1)\sum_{\substack{s_1\mid d_1\\ s_2\mid d_2}}c_{d_1}(d_1s_1)c_{d_2}(d_2s_2)\bigl(a_G(N)-a_G(N/2)\bigr),\\ G=G_{t_1d_1s_1,\,d_2s_2},
 \end{multline}
-where $c_p(p)=2$, $c_p(p^2)=-1$ for split $p$ and $c_q(q)=0$, $c_q(q^2)=1$ for inert $q$, multiplicatively; every parameter $t_1d_1s_1$, $d_2s_2$ is $\equiv1\pmod4$, being a product of split primes and of squares of inert primes. The scripts and outputs quoted below are in the directories \texttt{code/} and \texttt{results/} next to these notes; they import the modules of Part~II.
+where $c_p(p)=2$, $c_p(p^2)=-1$ for split $p$ and $c_q(q)=0$, $c_q(q^2)=1$ for inert $q$, multiplicatively; every parameter $t_1d_1s_1$, $d_2s_2$ is $\equiv1\pmod4$, being a product of split primes and of squares of inert primes. The scripts and outputs quoted below are in the directories \texttt{code/} and \texttt{results/} of the repository of Part~II, where these notes are kept in \texttt{notes/}; Sections~1, 3.2, 5.1--5.2, 2.1--2.2 and the conclusions of Sections~2.3--2.5, 4 and 6 have been incorporated into Part~II, Sections~7.3--7.5 and 8.1.
 
 \section{The symmetric remainder $R_d$}
 
@@ -475,7 +475,7 @@ At the level $1/2$ with the Diamond--Halberstam--Richert functions, $(7,4)$ is n
 \bibitem{AL} A.~O.~L.~Atkin, J.~Lehner, \emph{Hecke operators on $\Gamma_0(m)$}, Math. Ann. \textbf{185} (1970), 134--160.
 \bibitem{BFI} E.~Bombieri, J.~B.~Friedlander, H.~Iwaniec, \emph{Primes in arithmetic progressions to large moduli}, Acta Math. \textbf{156} (1986), 203--251.
 \bibitem{ChenI} R.~Chen, \emph{Sums of two squares with few prime factors via theta series of quaternary forms}, preprint, version 3 (2026), \url{https://github.com/Ruqing1963/two-squares-theta-level}.
-\bibitem{ChenII} R.~Chen, \emph{The mean square of the error term, the norm of the cusp form, and the two-dimensional sieve}, preprint (2026), \url{https://github.com/Ruqing1963/two-squares-mean-square}.
+\bibitem{ChenII} R.~Chen, \emph{Sums of two squares with few prime factors, II: the mean square of the cuspidal error of $\theta^2(mz)\theta^2(m'z)$, almost all $N$, and the size of the Petersson norm}, preprint (2026), \url{https://github.com/Ruqing1963/two-squares-mean-square}.
 \bibitem{DI} J.-M.~Deshouillers, H.~Iwaniec, \emph{Kloosterman sums and Fourier coefficients of cusp forms}, Invent. Math. \textbf{70} (1982), 219--288.
 \bibitem{Drappeau} S.~Drappeau, \emph{Sums of Kloosterman sums in arithmetic progressions, and the error term in the dispersion method}, Proc. London Math. Soc. \textbf{114} (2017), 684--732; \href{https://arxiv.org/abs/1504.05549}{arXiv:1504.05549}.
 \bibitem{Linnik} Yu.~V.~Linnik, \emph{The Dispersion Method in Binary Additive Problems}, Transl. Math. Monogr. \textbf{4}, Amer. Math. Soc., 1963.
