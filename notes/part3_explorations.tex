@@ -14,6 +14,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \theoremstyle{definition}
@@ -165,9 +166,10 @@ with $S(m,n;c)=\sum_{t\bmod c}^{*}e((mt+n\bar t)/c)$ the classical Kloosterman s
 \end{lemma}
 \begin{proof}
 Detect the congruence by $\frac1c\sum_{t\bmod c}e(t(x^2+y^2-a)/c)$. For $(t,c)=g$, $t=gt'$, the sum $\sum_{x\bmod c}e((tx^2+h_1x)/c)$ vanishes unless $g\mid h_1$ (shift $x$ by $c/g$), and then equals $g\,e(-\overline{4t'}(h_1/g)^2/(c/g))\,G(t';c/g)$ by completing the square ($2t'$ is invertible modulo $c/g$), where $G(t';c')=\sum_{x\bmod c'}e(t'x^2/c')$. For a prime power, $G(t';p^\nu)=p^{\nu/2}$ if $\nu$ is even and $p^{(\nu-1)/2}(t'/p)\varepsilon_p\sqrt p$ if $\nu$ is odd, with $\varepsilon_p^2=\chi(p)$; by the Chinese remainder theorem $G(t';c')^2=\chi(c'^{*})c'$ for every odd $c'$ (the twisting Jacobi symbols of the reduction square to $1$). Hence
-\[
-F_c(a;h)=\sum_{g\mid(c,h)}\frac{g^2}{c}\cdot\chi\Bigl(\Bigl(\frac cg\Bigr)^{*}\Bigr)\frac cg\sum_{t'\bmod c/g}^{*}e\Bigl(\frac{-t'a-\overline{4t'}|h/g|^2}{c/g}\Bigr)=\sum_{g\mid(c,h)}g\,\chi\Bigl(\Bigl(\frac cg\Bigr)^{*}\Bigr)S\Bigl(a,\overline4|h/g|^2;\frac cg\Bigr),
-\]
+\begin{multline*}
+F_c(a;h)=\sum_{g\mid(c,h)}\frac{g^2}{c}\cdot\chi\Bigl(\Bigl(\frac cg\Bigr)^{*}\Bigr)\frac cg\sum_{t'\bmod c/g}^{*}e\Bigl(\frac{-t'a-\overline{4t'}|h/g|^2}{c/g}\Bigr)\\
+=\sum_{g\mid(c,h)}g\,\chi\Bigl(\Bigl(\frac cg\Bigr)^{*}\Bigr)S\Bigl(a,\overline4|h/g|^2;\frac cg\Bigr),
+\end{multline*}
 using $S(-m,-n;c')=S(m,n;c')$. The script \texttt{kloosterman\_check.py} verifies the identity for all $a$, $h$ and all odd primes $c\le61$, for nine square-free composite $c\le105$, and for eleven odd $c\le135$ with square factors (\texttt{results/kloosterman\_check.txt}).
 \end{proof}
 
