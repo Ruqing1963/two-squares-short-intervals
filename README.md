@@ -6,7 +6,7 @@ Part III of the series after Part I ([two-squares-theta-level](https://github.co
 DOI 10.5281/zenodo.23826176) and Part II ([two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square),
 DOI 10.5281/zenodo.23826297). The repository holds
 
-* `paper/two_squares_part3.tex` (+ PDF, 27 pages, 4 figures): the paper;
+* `paper/two_squares_part3.tex` (+ PDF, 32 pages, 4 figures): the paper;
 * `notes/part3_explorations.tex` (+ PDF): the working notes from which the paper grew (also mirrored in Part II, `notes/`);
 * `code/`: the scripts (they import the modules of Part II from `../two-squares-mean-square/code`);
 * `results/`: their outputs; `figures/`: the four figures (PDF and PNG).
@@ -45,17 +45,29 @@ results leave open.
    for all G of level L would give (1 + Δ)/2 for every Δ > 0; Conjecture 7.3 is the same bound without the term L for
    the theta forms alone, interpolating between the individual conjecture of Part II (H = 1) and its mean-square theorem
    (H = X), and Corollary 7.4 derives from it the level 1 − ε for almost all N in every interval of length X^Δ. Section 8
-   explains the term L spectrally: the diagonal of the Hecke decomposition never carries it (Proposition 8.1); it is the
-   coherence of the Poincaré series, which aligns all spectral phases at one index, while the theta forms have
-   window-independent coefficients (central values) whose off-diagonal correlations average out (Proposition 8.2). The
-   data (Table 2, Figure 4) show the off-diagonal of G_{1,q} averaging to zero with root mean square decreasing like
-   H^{−1/2}, and the window ratios of G_{m,m'} independent of L down to H = 16.
+   explains the term L spectrally. Theorem 8.1 (unconditional): the diagonal of the Hecke decomposition satisfies the
+   conjectured bound X^ε HX‖G‖²/L for every H ≥ X^ε (Deligne's bound, Shiu's theorem on Σ d(n)² over short intervals,
+   Hoffstein–Lockhart for the Petersson norms, Gram matrices of the oldforms), so Conjecture 7.3 is equivalent to the
+   cancellation of the off-diagonal (Corollary 8.2), and the trivial spectral bound, which at H = 1 is the uniform bound
+   of Part I, exceeds it by exactly the factor L (Remark 8.3). The term L is the coherence of the Poincaré series,
+   which aligns all spectral phases at one index, while the theta forms have window-independent coefficients (central
+   values) whose off-diagonal correlations average out (Proposition 8.4). The data (Table 2, Figure 4) show the
+   off-diagonal of G_{1,q} averaging to zero with root mean square decreasing like H^{−1/2}, and the window ratios of
+   G_{m,m'} independent of L down to H = 16. Proposition 8.5: the lattice-point form of the variance (zeros of
+   Q ⊕ (−Q) in eight variables in a shell) does not avoid the spectral problem: it needs a twisted first moment of a_G
+   with square-root cancellation, and the precision HX/L lies below the floor X²‖G‖²/L of every circle-method error
+   term.
+5. **The bilinear form in the two moduli (Section 4.5).** The Chinese remainder theorem factors S(16N, n; m'k) and
+   writes the remainder as a bilinear form in (k, m') in which the fixed argument enters modulo m' as 16N k̄; the mixing
+   of k̄ is real and already used by the theta bound, so a saving must be bilinear (as in BFI, DFI). Section 6.4 (end):
+   the LP covers separable weights only; pair weights lead to a larger LP with the same inputs, Chen's switching to the
+   remainder problem of Section 3 with a prime variable inside the modulus.
 
-What is proved: Lemma 2.1, Propositions 2.2, 2.4, Lemma 3.1, Proposition 3.2, Theorems 5.1 and 7.1, Propositions 5.2,
-7.2, 8.1, 8.2 and Corollary 7.4 (the last two conditional). What is not: the exponent bookkeeping of Sections 3.3–3.5
-and 4 concerns the leading term of Proposition 3.2 under the most favourable assumptions; the optimality of Richert's
-weight is the solution of an LP on a grid; the comparisons with random signs, the eigenspace shares and the
-short-interval ratios are numerical observations.
+What is proved: Lemma 2.1, Propositions 2.2, 2.4, Lemma 3.1, Proposition 3.2, Theorems 5.1, 7.1 and 8.1, Propositions
+5.2, 7.2, 8.4, 8.5, Corollaries 7.4 and 8.2 (7.2 and 7.4 conditional). What is not: the exponent bookkeeping of
+Sections 3.3–3.5 and 4 concerns the leading term of Proposition 3.2 under the most favourable assumptions; the
+optimality of Richert's weight is the solution of an LP on a grid; the comparisons with random signs, the eigenspace
+shares and the short-interval ratios are numerical observations.
 
 ## Scripts (`code/`)
 
