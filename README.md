@@ -6,7 +6,7 @@ Part III of the series after Part I ([two-squares-theta-level](https://github.co
 DOI 10.5281/zenodo.23826176) and Part II ([two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square),
 DOI 10.5281/zenodo.23826297). The repository holds
 
-* `paper/two_squares_part3.tex` (+ PDF, 35 pages, 4 figures): the paper;
+* `paper/two_squares_part3.tex` (+ PDF, 36 pages, 4 figures): the paper;
 * `notes/part3_explorations.tex` (+ PDF): the working notes from which the paper grew (also mirrored in Part II, `notes/`);
 * `code/`: the scripts (they import the modules of Part II from `../two-squares-mean-square/code`);
 * `results/`: their outputs; `figures/`: the four figures (PDF and PNG).
@@ -26,11 +26,13 @@ results leave open.
    does not move the level (Table 1, Figure 1).
 2. **The dispersion form (Sections 3–4).** The Fourier transform of the circle x² + y² ≡ a modulo any odd c is a
    classical Kloosterman sum (Lemma 3.1, verified numerically), and a_G(N) − a_G(N/2) has as its leading term a sum of
-   S(16N, m|h|²; m'k) over the moduli c ≡ 0 (mod m'), the character χ_{−4} cancelling against the Gauss sums
+   S(\overline{16m} N, |h|²; m'k) over the moduli c ≡ 0 (mod m') (the inverse of 16m taken modulo the modulus; version 1
+   wrote S(16N, m|h|²; m'k), which is a different sum: a Kloosterman sum depends only on the product of its arguments),
+   the character χ_{−4} cancelling against the Gauss sums
    (Proposition 3.2). The uniform bound of Part I is square-root cancellation over k; over m' it would give the level
    2/3, over m as well 1; the Weil bound gives 1/4. Substituting the Deshouillers–Iwaniec and Drappeau bounds in every
    assignment (Section 3.5) and applying Cauchy–Schwarz with Poisson in the dual variable h (Section 4) finds the same
-   obstruction each time: the single fixed first argument 16N (the h-box has side ≤ √(mm') while every modulus is
+   obstruction each time: the single fixed argument N, carried by the unit \overline{16m} (the h-box has side ≤ √(mm') while every modulus is
    ≥ √N). Figure 2 shows the measured correlations of the h-sums.
 3. **Sieve barriers at the level 1/2 (Sections 5–6).** The factor 2^Ω enters only the constant; what the weights
    r(n) r(N − n) cost is the dimension, 2 against 1 (a dimension-one sieve would give (5,3) at 1/2 and (3,2) from 4/5).
@@ -60,8 +62,8 @@ results leave open.
    Q ⊕ (−Q) in eight variables in a shell) does not avoid the spectral problem: it needs a twisted first moment of a_G
    with square-root cancellation, and the precision HX/L lies below the floor X²‖G‖²/L of every circle-method error
    term.
-5. **The bilinear form in the two moduli (Section 4.5).** The Chinese remainder theorem factors S(16N, n; m'k) and
-   writes the remainder as a bilinear form in (k, m') in which the fixed argument enters modulo m' as 16N k̄; the mixing
+5. **The bilinear form in the two moduli (Section 4.5).** The Chinese remainder theorem factors S(\overline{16m} N, |h|²; m'k) and
+   writes the remainder as a bilinear form in (k, m') in which the fixed argument enters modulo m' as \overline{16m} N k̄; the mixing
    of k̄ is real and already used by the theta bound, so a saving must be bilinear (as in BFI, DFI). Section 6.4 (pair
    weights): the sieve accepts weights with a term g₂(t_p, t_q) for each pair of prime factors, sieved at the level
    N^{θ−t_p−t_q} (Proposition 6.1); the LP extends to them (all 5·10⁶ five-prime configurations enumerated, cutting

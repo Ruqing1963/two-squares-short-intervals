@@ -1,45 +1,45 @@
 ﻿k = 43:
-   m' =   41: c = m'k =   1763, H =   2.79, #h (eff.) =     2.9, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.247
-   m' =   53: c = m'k =   2279, H =   3.60, #h (eff.) =     5.5, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.459
-   m' =   61: c = m'k =   2623, H =   4.15, #h (eff.) =     7.6, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.414
-   m' =   73: c = m'k =   3139, H =   4.96, #h (eff.) =    11.3, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 3.580
-   m' =   89: c = m'k =   3827, H =   6.05, #h (eff.) =    17.3, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.622
-   m' =   97: c = m'k =   4171, H =   6.59, #h (eff.) =    20.7, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.118
-   m' =  109: c = m'k =   4687, H =   7.41, #h (eff.) =    26.5, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 2.694
-   m' =  113: c = m'k =   4859, H =   7.68, #h (eff.) =    28.5, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.205
-   m' =  137: c = m'k =   5891, H =   9.31, #h (eff.) =    42.4, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.871
-   m' =  149: c = m'k =   6407, H =  10.13, #h (eff.) =    50.3, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.507
-   m' =  157: c = m'k =   6751, H =  10.67, #h (eff.) =    56.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.333
-   m' =  173: c = m'k =   7439, H =  11.76, #h (eff.) =    68.2, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.001
-   off-diagonal correlations: rms 0.380, max |.| 0.928; random-sign size 1/sqrt(#h) = 0.189
-   quadratic form / trace: signs mu 0.65, all +1 0.65, random signs (mean of 200) 0.95  (1 = square-root cancellation over m', 12 = none)
+   m' =   41: c = m'k =   1763, H =   2.79, #h (eff.) =     2.9, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.256
+   m' =   53: c = m'k =   2279, H =   3.60, #h (eff.) =     5.5, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.657
+   m' =   61: c = m'k =   2623, H =   4.15, #h (eff.) =     7.6, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.798
+   m' =   73: c = m'k =   3139, H =   4.96, #h (eff.) =    11.3, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.772
+   m' =   89: c = m'k =   3827, H =   6.05, #h (eff.) =    17.3, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.256
+   m' =   97: c = m'k =   4171, H =   6.59, #h (eff.) =    20.7, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 2.643
+   m' =  109: c = m'k =   4687, H =   7.41, #h (eff.) =    26.5, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.653
+   m' =  113: c = m'k =   4859, H =   7.68, #h (eff.) =    28.5, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.732
+   m' =  137: c = m'k =   5891, H =   9.31, #h (eff.) =    42.4, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.748
+   m' =  149: c = m'k =   6407, H =  10.13, #h (eff.) =    50.3, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.804
+   m' =  157: c = m'k =   6751, H =  10.67, #h (eff.) =    56.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.120
+   m' =  173: c = m'k =   7439, H =  11.76, #h (eff.) =    68.2, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.818
+   off-diagonal correlations: rms 0.285, max |.| 0.832; random-sign size 1/sqrt(#h) = 0.189
+   quadratic form / trace: signs mu 0.74, all +1 0.74, random signs (mean of 200) 1.00  (1 = square-root cancellation over m', 12 = none)
 k = 83:
-   m' =   41: c = m'k =   3403, H =   5.38, #h (eff.) =    13.5, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.190
-   m' =   53: c = m'k =   4399, H =   6.96, #h (eff.) =    23.2, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.426
-   m' =   61: c = m'k =   5063, H =   8.01, #h (eff.) =    31.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.192
-   m' =   73: c = m'k =   6059, H =   9.58, #h (eff.) =    44.9, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.034
-   m' =   89: c = m'k =   7387, H =  11.68, #h (eff.) =    67.2, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.228
-   m' =   97: c = m'k =   8051, H =  12.73, #h (eff.) =    80.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.982
-   m' =  109: c = m'k =   9047, H =  14.30, #h (eff.) =   101.3, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.152
-   m' =  113: c = m'k =   9379, H =  14.83, #h (eff.) =   109.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.323
-   m' =  137: c = m'k =  11371, H =  17.98, #h (eff.) =   160.6, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.741
-   m' =  149: c = m'k =  12367, H =  19.55, #h (eff.) =   190.2, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.865
-   m' =  157: c = m'k =  13031, H =  20.60, #h (eff.) =   211.3, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.038
-   m' =  173: c = m'k =  14359, H =  22.70, #h (eff.) =   256.7, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.034
-   off-diagonal correlations: rms 0.188, max |.| 0.527; random-sign size 1/sqrt(#h) = 0.096
-   quadratic form / trace: signs mu 0.75, all +1 0.75, random signs (mean of 200) 0.98  (1 = square-root cancellation over m', 12 = none)
+   m' =   41: c = m'k =   3403, H =   5.38, #h (eff.) =    13.5, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.455
+   m' =   53: c = m'k =   4399, H =   6.96, #h (eff.) =    23.2, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.993
+   m' =   61: c = m'k =   5063, H =   8.01, #h (eff.) =    31.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.917
+   m' =   73: c = m'k =   6059, H =   9.58, #h (eff.) =    44.9, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.704
+   m' =   89: c = m'k =   7387, H =  11.68, #h (eff.) =    67.2, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.702
+   m' =   97: c = m'k =   8051, H =  12.73, #h (eff.) =    80.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.591
+   m' =  109: c = m'k =   9047, H =  14.30, #h (eff.) =   101.3, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.084
+   m' =  113: c = m'k =   9379, H =  14.83, #h (eff.) =   109.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.293
+   m' =  137: c = m'k =  11371, H =  17.98, #h (eff.) =   160.6, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.823
+   m' =  149: c = m'k =  12367, H =  19.55, #h (eff.) =   190.2, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.603
+   m' =  157: c = m'k =  13031, H =  20.60, #h (eff.) =   211.3, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.879
+   m' =  173: c = m'k =  14359, H =  22.70, #h (eff.) =   256.7, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.947
+   off-diagonal correlations: rms 0.159, max |.| 0.438; random-sign size 1/sqrt(#h) = 0.096
+   quadratic form / trace: signs mu 1.10, all +1 1.10, random signs (mean of 200) 0.99  (1 = square-root cancellation over m', 12 = none)
 k = 127:
-   m' =   41: c = m'k =   5207, H =   8.23, #h (eff.) =    32.9, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.522
-   m' =   53: c = m'k =   6731, H =  10.64, #h (eff.) =    55.6, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.563
-   m' =   61: c = m'k =   7747, H =  12.25, #h (eff.) =    74.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.065
-   m' =   73: c = m'k =   9271, H =  14.66, #h (eff.) =   106.4, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.760
-   m' =   89: c = m'k =  11303, H =  17.87, #h (eff.) =   158.7, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.944
-   m' =   97: c = m'k =  12319, H =  19.48, #h (eff.) =   188.7, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.416
-   m' =  109: c = m'k =  13843, H =  21.89, #h (eff.) =   238.5, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.037
-   m' =  113: c = m'k =  14351, H =  22.69, #h (eff.) =   256.4, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.490
-   m' =  137: c = m'k =  17399, H =  27.51, #h (eff.) =   377.4, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.017
-   m' =  149: c = m'k =  18923, H =  29.92, #h (eff.) =   446.6, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.992
-   m' =  157: c = m'k =  19939, H =  31.53, #h (eff.) =   496.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.017
-   m' =  173: c = m'k =  21971, H =  34.74, #h (eff.) =   602.4, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.153
-   off-diagonal correlations: rms 0.144, max |.| 0.327; random-sign size 1/sqrt(#h) = 0.063
-   quadratic form / trace: signs mu 1.02, all +1 1.02, random signs (mean of 200) 0.99  (1 = square-root cancellation over m', 12 = none)
+   m' =   41: c = m'k =   5207, H =   8.23, #h (eff.) =    32.9, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.666
+   m' =   53: c = m'k =   6731, H =  10.64, #h (eff.) =    55.6, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.706
+   m' =   61: c = m'k =   7747, H =  12.25, #h (eff.) =    74.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.843
+   m' =   73: c = m'k =   9271, H =  14.66, #h (eff.) =   106.4, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.966
+   m' =   89: c = m'k =  11303, H =  17.87, #h (eff.) =   158.7, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.384
+   m' =   97: c = m'k =  12319, H =  19.48, #h (eff.) =   188.7, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.820
+   m' =  109: c = m'k =  13843, H =  21.89, #h (eff.) =   238.5, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.893
+   m' =  113: c = m'k =  14351, H =  22.69, #h (eff.) =   256.4, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.826
+   m' =  137: c = m'k =  17399, H =  27.51, #h (eff.) =   377.4, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.233
+   m' =  149: c = m'k =  18923, H =  29.92, #h (eff.) =   446.6, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 1.212
+   m' =  157: c = m'k =  19939, H =  31.53, #h (eff.) =   496.0, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.811
+   m' =  173: c = m'k =  21971, H =  34.74, #h (eff.) =   602.4, H^2/c^2 = 2.5e-06, diag C/(H^2 c) = 0.868
+   off-diagonal correlations: rms 0.118, max |.| 0.309; random-sign size 1/sqrt(#h) = 0.063
+   quadratic form / trace: signs mu 0.77, all +1 0.77, random signs (mean of 200) 1.00  (1 = square-root cancellation over m', 12 = none)

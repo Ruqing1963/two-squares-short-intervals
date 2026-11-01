@@ -1,12 +1,13 @@
 r"""
 Exploration A (Part III notes, Section 4): the sizes in the Cauchy-Schwarz / Poisson attack on the fixed first argument.
 
-In the trilinear form (5) of the notes the Kloosterman sums S(16N, m|h|^2; m'k) are summed over a box |h| <= H with
+In the trilinear form (5) of the notes the Kloosterman sums S(inv(16m) N, |h|^2; m'k) (the inverse of 16m taken modulo
+the modulus; version 1 of the paper wrote S(16N, m|h|^2; m'k), which is a different sum) are summed over a box |h| <= H with
 H = m'k sqrt(m/N) (so H^2 = m (m'k)^2 / N <= m m' at the top of the k-range), while the modulus in the Poisson step for
 the off-diagonal terms (m'_1, m'_2) is q = [m'_1 k, m'_2 k] ~ (m'k)^2 / gcd.  The script prints, for N = 2000002, m = 5
 and k in the Kloosterman regime k >= sqrt(N/m)/m', the ratio H^2 / q (always << 1: the box is far shorter than the
 modulus, so Poisson in h lengthens the sum), and measures the correlation matrix
-    C(m'_1, m'_2) = sum_h W(h/H) S(16N, m|h|^2; m'_1 k) S(16N, m|h|^2; m'_2 k)
+    C(m'_1, m'_2) = sum_h W(h/H) S(inv(16m) N, |h|^2; m'_1 k) S(inv(16m) N, |h|^2; m'_2 k)
 over m' in a set of primes = 1 mod 4: the diagonal C(m',m') against the Weil size H^2 m'k, the off-diagonal entries
 against sqrt(C(m'_1,m'_1) C(m'_2,m'_2)) / sqrt(#h) (the random-sign size), and the quadratic form with the
 signs mu(m') and random signs against the diagonal (square-root cancellation over m' means |sum_{m'} +- sum_h W S|^2
@@ -50,8 +51,8 @@ for k in ks:
         sel = (j > 0) & par
         j = j[sel]
         W = np.exp(-pi * j / H ** 2)
-        tab = kloosterman_table(16 * N, c, m * j)
-        S = np.array([tab[int(m * v)] for v in j])
+        tab = kloosterman_table((N * pow(16 * m, -1, c)) % c, c, j)
+        S = np.array([tab[int(v)] for v in j])
         rows[mp] = (W, S, H, c)
     mps = sorted(rows)
     if len(mps) < 3:
@@ -70,8 +71,8 @@ for k in ks:
         c = mp * k
         H = c * sqrt(m / N)
         W = np.exp(-pi * j / H ** 2)
-        tab = kloosterman_table(16 * N, c, m * j)
-        S = np.array([tab[int(m * v)] for v in j])
+        tab = kloosterman_table((N * pow(16 * m, -1, c)) % c, c, j)
+        S = np.array([tab[int(v)] for v in j])
         vec[mp] = np.sqrt(W) * S          # so that C = vec . vec
         q_typ = c * c
         print(f"   m' = {mp:4d}: c = m'k = {c:6d}, H = {H:6.2f}, #h (eff.) = {np.sum(W):7.1f}, H^2/c^2 = {H * H / q_typ:.1e}, "
