@@ -4,7 +4,7 @@
 
 Part III of the series after Part I ([two-squares-theta-level](https://github.com/Ruqing1963/two-squares-theta-level),
 DOI 10.5281/zenodo.23826176) and Part II ([two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square),
-DOI 10.5281/zenodo.23826297). The repository holds
+version 3, DOI 10.5281/zenodo.23866064). The repository holds
 
 * `paper/two_squares_part3.tex` (+ PDF, 36 pages, 4 figures): the paper;
 * `notes/part3_explorations.tex` (+ PDF): the working notes from which the paper grew (also mirrored in Part II, `notes/`);
